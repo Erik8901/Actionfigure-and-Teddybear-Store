@@ -2,7 +2,7 @@
   "name": "lab33",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/erik8901/Lab33.git",
+  "homepage": "https://erik8901.github.io/Lab33",
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
