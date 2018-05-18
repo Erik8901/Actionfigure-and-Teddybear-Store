@@ -9,15 +9,15 @@ class ProductsInStore extends Component {
     console.log(this.props)
 
     let productStoreContent;
-    let pathToPicture = "./img/zombie-3118438_640.png";
+
 
     const listOfProducts = this.props.products.map( x => (
 
       <li className="items" key={x.name}>
 
       <h3>{x.name}</h3>
-      <img className="productImg" src="./img/zombie-3118438_640.png"/>
-      <p>Price: {x.price}</p>
+      <img className="productImg"  src={require("./img/zombie.png")}/>
+      <p>Price: {x.price}</p><button className="buyItem">Buy</button>
       </li>
     ));
 
