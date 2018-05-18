@@ -8,9 +8,28 @@ import {createStore} from 'redux';
 import rootReducer from './reducers/reducers.js'
 
 const initialState = {
-    items: 3
-    
-    
+  products: [{
+      name: "Teddybear Johan",
+      price: "99kr",
+    },
+    {
+      name: "Teddybear Hackerman",
+      price: "5kr",
+    },
+    {
+      name: "Teddybear thatzita",
+      price: "899kr",
+    },
+    {
+      name: "Teddybear Pedro",
+      price: "39kr",
+    },
+    {
+      name: "Johan ActionMan",
+      price: "1999kr",
+    },
+  ],
+
 }
 
 const store = createStore(rootReducer, initialState,
@@ -20,7 +39,7 @@ const store = createStore(rootReducer, initialState,
 ReactDOM.render((
     <Provider store={store}>
         <App />
+
     </Provider>
 ), document.getElementById('root'));
 registerServiceWorker();
-
