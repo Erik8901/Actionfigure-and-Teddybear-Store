@@ -11,6 +11,15 @@ const reducer = (state = 0 , action) => {
               
         case "REMOVE":
             return state - 1
+            
+        case "TEST":
+            console.log("hej")
+            return state
+            
+        case "ADMINLOGIN":
+            console.log("admin")
+            
+            return state 
         
         default:
             return state
