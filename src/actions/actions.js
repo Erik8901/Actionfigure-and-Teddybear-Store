@@ -16,17 +16,12 @@ let showProducts = () => {
   }
 }
 
-let showLogin = () => {
-     
-    return {
-        type: "SHOW_ADMIN_LOGIN"
-    }
-}
+
 
 
 
 export {
   actionAddItem,
   actionRemoveItem,
-  showLogin
+  
 };
