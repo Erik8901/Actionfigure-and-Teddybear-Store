@@ -12,6 +12,7 @@ const reducer = (state = 0, action) => {
 
     case "REMOVE":
       return state - 1
+    
 
     default:
       return state
