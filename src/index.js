@@ -8,6 +8,7 @@ import {createStore} from 'redux';
 import rootReducer from './reducers/reducers.js'
 
 const initialState = {
+   
   products: [{
       name: "Teddybear Johan",
       price: "99kr",

@@ -1,3 +1,18 @@
 body {
     background-color: lightblue;
 }
+
+
+
+.admins {
+    background-color: lightgreen;
+}
+
+.loginDiv {
+    background-color: yellow;
+    height: 200px;
+    width: 200px;
+}
+
+
+
