@@ -5,6 +5,7 @@ let actionAddItem = () => {
 }
 
 let actionRemoveItem = () => {
+
   return {
     type: "REMOVE"
   }
@@ -23,5 +24,8 @@ let showProducts = () => {
 export {
   actionAddItem,
   actionRemoveItem,
+  };
+
+
   
-};
+
