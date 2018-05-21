@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './ProductsInStore.css'
-<<<<<<< HEAD
+
 import AddProductsToStore from './addProductsToStore.js';
 // import { actionAddItem, actionRemoveItem} from './actions/actions.js';
 
@@ -39,7 +39,7 @@ class ProductsInStore extends Component {
 }
 
 let mapStateToProps = state => {
-<<<<<<< HEAD
+
   console.log(state.products)
   return {products: state.products,
          newProduct:state.newProduct}

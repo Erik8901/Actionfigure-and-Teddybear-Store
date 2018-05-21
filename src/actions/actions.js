@@ -39,7 +39,7 @@ export {
   actionRemoveItem,
 
   actionCheckAdmin,
-  actionAddToStore
+  actionAddToStore,
 
 
   actionAddToCart
