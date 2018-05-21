@@ -13,7 +13,7 @@ let actionRemoveItem = () => {
 
 let showProducts = () => {
   return {
-    type: "SHOW_PRODUCTS"
+    type: "ADD_PRODUCTS"
   }
 }
 
