@@ -11,10 +11,12 @@ let actionRemoveItem = () => {
   }
 }
 
-let actionAddToCart = () => {
-  console.log("hejsan")
+let actionAddToCart = (productKey) => {
+  // console.log(productKey)
   return {
-    type: "BUY_PRODUCTS"
+    type: "BUY_PRODUCTS",
+    key: productKey,
+    oneLess: -1,
   }
 }
 

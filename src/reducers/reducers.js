@@ -17,16 +17,14 @@ const reducer = (state = 0 , action) => {
         default:
             return state
     }
-
 }
 
 const productReducer = (state = [], action) => {
   console.log("productReducer: ", action);
-  console.log(state)
-  console.log([...state])
   switch (action.type) {
     case "BUY_PRODUCTS":
-      return  state;
+    return state.map( x => x.key === action.key  ? {...x, amount: x.amount + action.oneLess} : x)
+
     default:
       return state;
   }
