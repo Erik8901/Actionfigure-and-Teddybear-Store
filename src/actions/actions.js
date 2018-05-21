@@ -11,9 +11,10 @@ let actionRemoveItem = () => {
   }
 }
 
-let showProducts = () => {
+let actionAddToCart = () => {
+  console.log("hejsan")
   return {
-    type: "ADD_PRODUCTS"
+    type: "BUY_PRODUCTS"
   }
 }
 
@@ -24,8 +25,5 @@ let showProducts = () => {
 export {
   actionAddItem,
   actionRemoveItem,
+  actionAddToCart
   };
-
-
-  
-

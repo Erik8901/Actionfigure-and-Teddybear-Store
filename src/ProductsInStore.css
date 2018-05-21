@@ -17,16 +17,8 @@
 
 li>h3 {
   margin-top: 15px;
-  /* text-align: center; */
   position: absolute;
 }
-
-/* li>button {
-  text-align: center;
-  position: absolute;
-  top: -100px;
-  right: 0;
-} */
 
 .productImg {
   width: 128px;
@@ -36,9 +28,7 @@ li>h3 {
 }
 
 .items>span {
-  /* margin-bottom: 120px; */
   position: relative;
-  /* text-align: center; */
   top: 80px;
 }
 
