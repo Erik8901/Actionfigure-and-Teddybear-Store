@@ -6,30 +6,27 @@ import {
 
 
 const reducer = (state = 0 , action) => {
-    console.log("reducer going HEJ", action)
-    
     switch (action.type) {
         case "ADD":
             return state + 1
-              
+
         case "REMOVE":
             return state - 1
-            
-        
+
+
         default:
             return state
     }
-    
+
 }
 
 const productReducer = (state = [], action) => {
   console.log("productReducer: ", action);
+  console.log(state)
+  console.log([...state])
   switch (action.type) {
-    case "ADD_PRODUCTS":
-      return {
-        ...state,
-
-      }
+    case "BUY_PRODUCTS":
+      return  state;
     default:
       return state;
   }
