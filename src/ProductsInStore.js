@@ -6,7 +6,7 @@ import { actionAddToCart } from './actions/actions.js';
 class ProductsInStore extends Component {
 
   render() {
-    console.log(this.props.products)
+    // console.log(this.props.products)
 
     let productStoreContent;
 
@@ -14,13 +14,13 @@ class ProductsInStore extends Component {
     const listOfProducts = this.props.products.map( x => (
 
 
-      <li className="items" key={x.name + x.amount}>
+      <li className="items" key={x.name + x.price}>
 
       <h3>{x.name}</h3>
       <img className="productImg"  src={require("./img/teddybear.png")}/>
       <span>Price: {x.price}</span><br/>
       <span>Amount in store: {x.amount}</span>
-      <button className="buyItem" onClick={event => this.props.dispatch(actionAddToCart(-1))}>Buy</button>
+      <button className="buyItem" onClick={event => this.props.dispatch(actionAddToCart(x.name + x.price))}>Buy</button>
       </li>
 
     ));
@@ -34,7 +34,7 @@ class ProductsInStore extends Component {
 }
 
 let mapStateToProps = state => {
-  console.log(state.products)
+  // console.log(state.products)
   // console.log(state.products.amount)
   return {
   products: state.products,
