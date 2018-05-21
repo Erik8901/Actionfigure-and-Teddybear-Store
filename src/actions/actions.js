@@ -11,9 +11,12 @@ let actionRemoveItem = () => {
   }
 }
 
-let showProducts = () => {
+let actionAddToCart = (productKey) => {
+  // console.log(productKey)
   return {
-    type: "ADD_PRODUCTS"
+    type: "BUY_PRODUCTS",
+    key: productKey,
+    oneLess: -1,
   }
 }
 
@@ -34,11 +37,11 @@ let actionAddToStore = name => {
 export {
   actionAddItem,
   actionRemoveItem,
+
   actionCheckAdmin,
   actionAddToStore
 
+
+  actionAddToCart
+
   };
-
-
-  
-

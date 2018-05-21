@@ -1,13 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './ProductsInStore.css'
+<<<<<<< HEAD
 import AddProductsToStore from './addProductsToStore.js';
 // import { actionAddItem, actionRemoveItem} from './actions/actions.js';
+
+import { actionAddToCart } from './actions/actions.js';
+
 
 class ProductsInStore extends Component {
 
   render() {
-    console.log(this.props)
+    // console.log(this.props.products)
 
     let productStoreContent;
 
@@ -15,13 +19,13 @@ class ProductsInStore extends Component {
     const listOfProducts = this.props.products.map( x => (
 
 
-      <li className="items" key={x.name}>
+      <li className="items" key={x.name + x.price}>
 
       <h3>{x.name}</h3>
       <img className="productImg"  src={require("./img/teddybear.png")}/>
       <span>Price: {x.price}</span><br/>
       <span>Amount in store: {x.amount}</span>
-      <button className="buyItem">Buy</button>
+      <button className="buyItem" onClick={event => this.props.dispatch(actionAddToCart(x.name + x.price))}>Buy</button>
       </li>
 
     ));
@@ -29,17 +33,24 @@ class ProductsInStore extends Component {
 
     productStoreContent = <ul className="container">{listOfProducts}</ul>
     return (<div>
-
       {productStoreContent}
-
     </div>)
   }
 }
 
 let mapStateToProps = state => {
+<<<<<<< HEAD
   console.log(state.products)
   return {products: state.products,
          newProduct:state.newProduct}
     console.log(state.newProduct)
+
+  // console.log(state.products)
+  // console.log(state.products.amount)
+  return {
+  products: state.products,
+  // amount: state.products.amount
+  }
+
 }
 export default connect(mapStateToProps)(ProductsInStore);
