@@ -18,32 +18,10 @@ const reducer = (state = 0, action) => {
   }
 }
 
-const productReducer = (state = {
-    products: [{
-        name: "Teddybear Johan",
-        price: "99kr",
-      },
-      {
-        name: "Teddybear Hackerman",
-        price: "5kr",
-      },
-      {
-        name: "Teddybear thatzita",
-        price: "899kr",
-      },
-      {
-        name: "Teddybear Pedro",
-        price: "39kr",
-      },
-      {
-        name: "Johan ActionMan",
-        price: "1999kr",
-      },
-    ],
-}, action) => {
+const productReducer = (state = [], action) => {
   console.log("productReducer: ", action);
   switch (action.type) {
-    case "SHOW_PRODUCTS":
+    case "ADD_PRODUCTS":
       return {
         ...state,
 

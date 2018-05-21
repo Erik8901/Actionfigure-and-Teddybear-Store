@@ -13,17 +13,22 @@ class ProductsInStore extends Component {
 
     const listOfProducts = this.props.products.map( x => (
 
+
       <li className="items" key={x.name}>
 
       <h3>{x.name}</h3>
-      <img className="productImg"  src={require("./img/zombie.png")}/>
-      <p>Price: {x.price}</p><button className="buyItem">Buy</button>
+      <img className="productImg"  src={require("./img/teddybear.png")}/>
+      <span>Price: {x.price}</span><br/>
+      <span>Amount in store: {x.amount}</span>
+      <button className="buyItem">Buy</button>
       </li>
+
     ));
 
 
     productStoreContent = <ul className="container">{listOfProducts}</ul>
     return (<div>
+
       {productStoreContent}
 
     </div>)
