@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './ProductsInStore.css'
+import AddProductsToStore from './addProductsToStore.js';
 // import { actionAddItem, actionRemoveItem} from './actions/actions.js';
 
 class ProductsInStore extends Component {
@@ -37,6 +38,8 @@ class ProductsInStore extends Component {
 
 let mapStateToProps = state => {
   console.log(state.products)
-  return {products: state.products}
+  return {products: state.products,
+         newProduct:state.newProduct}
+    console.log(state.newProduct)
 }
 export default connect(mapStateToProps)(ProductsInStore);
