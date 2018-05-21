@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './ProductsInStore.css'
 import { actionAddToCart } from './actions/actions.js';
+import {addProduct} from "./actions/actions.js"
+import Cart from "./cart.js"
 
 class ProductsInStore extends Component {
 
@@ -9,8 +11,8 @@ class ProductsInStore extends Component {
     // console.log(this.props.products)
 
     let productStoreContent;
-
-
+    console.log(this.props)
+    let self = this;
     const listOfProducts = this.props.products.map( x => (
 
 
@@ -20,15 +22,21 @@ class ProductsInStore extends Component {
       <img className="productImg"  src={require("./img/teddybear.png")}/>
       <span>Price: {x.price}</span><br/>
       <span>Amount in store: {x.amount}</span>
-      <button className="buyItem" onClick={event => this.props.dispatch(actionAddToCart(x.name + x.price))}>Buy</button>
+      <button className="buyItem" disabled={x.amount ===0} onClick={e => this.handleClick(x.name, x.price)}>Add</button>
       </li>
 
     ));
 
 
+    this.handleClick =(name, price)=>{
+      self.props.dispatch(actionAddToCart(name + price))
+      self.props.dispatch(addProduct(name, price, name + price))
+    }
+
     productStoreContent = <ul className="container">{listOfProducts}</ul>
     return (<div>
       {productStoreContent}
+      <Cart/>
     </div>)
   }
 }
