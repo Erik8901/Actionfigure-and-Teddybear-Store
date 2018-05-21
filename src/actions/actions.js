@@ -31,6 +31,12 @@ let addProduct = (name, price, key) => {
   }
 }
 
+let actionCheckAdmin = () => {
+    return {
+        type: "ADMIN_LOGIN"
+    }
+}
+
 
 
 export {
@@ -38,4 +44,10 @@ export {
   actionRemoveItem,
   actionAddToCart,
   addProduct
+
+  actionCheckAdmin,
+  actionAddToStore,
+
+
+
   };

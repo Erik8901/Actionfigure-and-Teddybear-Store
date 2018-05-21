@@ -9,6 +9,17 @@ import rootReducer from './reducers/reducers.js'
 
 const initialState = {
 
+   
+    inputUser: '',
+    inputPass: '',
+    
+    newProduct: {
+        inputName: '',
+        inputPrice: '',
+        inputAmount: ''
+    },
+    
+
   products: [{
       name: "Teddybear Johan",
       price: "99",

@@ -32,6 +32,28 @@ const productReducer = (state = [], action) => {
       return state;
   }
 }
+    
+const adminReducer = (state = '',action) => {
+    switch (action.type) {
+        case "ADMIN_LOGIN":
+            return state
+            
+        default :
+            return state
+    }
+}
+
+const addReducer = (state = {},action) => {
+    console.log(action)
+    console.log(state)
+    switch (action.type) {
+        case "ADD_TO_STORE":
+            return state
+            
+        default:
+            return state
+    }
+}
 
 
 const listOfAddedProductsReducer = (state = {}, action) => {
@@ -55,8 +77,9 @@ let rootReducer = combineReducers({
   // items: reducer,
   products: productReducer,
   listOfAddedProducts: listOfAddedProductsReducer
+
   //    value: counterReducer,
-  //    animals: animalReducer,
+      input: adminReducer,
   //    numberOfClicks: clicksReducer
 });
 
