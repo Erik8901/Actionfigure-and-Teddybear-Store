@@ -1,32 +1,33 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import { showLogin } from './actions/actions.js';
-import { actionCheckAdmin } from './actions/actions.js';
+// import { showLogin } from './actions/actions.js';
+// import { actionCheckAdmin } from './actions/actions.js';
 import  AddProductsToStore  from './addProductsToStore.js';
 
 class AdminLoginDiv extends Component {
     constructor(props) {
 		super(props);
-		this.state = { inputUser: '',
-                       inputPass: '',
-                       checkAdminLogin: false};
+		this.state = {
+      inputUser: '',
+      inputPass: '',
+      checkAdminLogin: false};
     }
-    
+
     checkAdminLogin = (e) => {
         this.setState({checkAdminLogin: true})
     }
-    
+
     render() {
-        
+
         if(this.state.checkAdminLogin) {
-           
+
             return(<div>
                 <AddProductsToStore/>
                 </div>)
         }
-       
-            
+
+
             return (
             <div className="loginDiv">
                 Adminname:<input type="text" placeholder="adminname"
@@ -36,35 +37,36 @@ class AdminLoginDiv extends Component {
                       onChange={e => this.setState({ inputPass: e.target.value})}/>
                 <button onClick={this.checkAdminLogin} type="submit">Login!</button>
             </div>
-        
+
     )
-    
-    
+
+
     }
     checkAdminLogin = event => {
-        
-        
-        let action = actionCheckAdmin(this.state.input);
-        this.props.dispatch(action)
-        
+
+
+        // let action = actionCheckAdmin(this.state.input);
+        // this.props.dispatch(action)
+
         if(this.state.inputUser === "admin" && this.state.inputPass === "admin") {
-            
+
         this.setState({checkAdminLogin: true})
-           console.log("Admin Logged in")
-               
-            
+           // console.log("Admin Logged in")
+
+
         } else {
             alert("WRONG")
-         console.log("Admin Failed to login")
+         // console.log("Admin Failed to login")
         }
-        
+
     }
-    
+
 }
 
     let mapStateToProps = state => {
 	return {
-		input: state.input
+    products: state.products,
+    newProduct: state.newProduct
 	}
 }
 

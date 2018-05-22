@@ -14,15 +14,19 @@ class App extends Component {
   render() {
     return (
       <div>
-
+        
         <ProductsInStore />
         <AdminLogin  />
 
-        
-            
+
+
       </div>
-        
+
     );
+  }
+
+  componentDidUpdate(){
+    console.log(this.props)
   }
 }
 // <Template/>

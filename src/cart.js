@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 01e984508feac93b645569c7af2cf8bac4e75c28
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {undoProduct} from "./actions/actions.js"
