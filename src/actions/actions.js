@@ -5,9 +5,8 @@ let actionAddItem = () => {
 }
 
 let actionRemoveItem = () => {
-
-  return {
-    type: "REMOVE"
+    return {
+        type: "REMOVE"
   }
 }
 
@@ -40,11 +39,7 @@ let addProductToPresent = (name, price, key) =>{
   }
 }
 
-let actionCheckAdmin = () => {
-    return {
-        type: "ADMIN_LOGIN"
-    }
-}
+
 
 let undoProduct = () => {
   return {
@@ -52,14 +47,17 @@ let undoProduct = () => {
   }
 }
 
+
 export {
   actionAddItem,
   actionRemoveItem,
   actionAddToCart,
   addProduct,
 
-  actionCheckAdmin,
+  
   addProductToPresent,
   undoProduct
 
   };
+
+

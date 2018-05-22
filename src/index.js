@@ -10,10 +10,8 @@ import rootReducer from './reducers/reducers.js'
 const initialState = {
 
 
-    inputUser: '',
-    inputPass: '',
-
     newProduct: {
+
         inputName: '',
         inputPrice: '',
         inputAmount: ''

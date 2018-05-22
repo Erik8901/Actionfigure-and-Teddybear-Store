@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import { showLogin } from './actions/actions.js';
-import { actionCheckAdmin } from './actions/actions.js';
-import  AddProductsToStore  from './addProductsToStore.js';
+import AddProductsToStore  from './addProductsToStore.js';
 
 class AdminLoginDiv extends Component {
     constructor(props) {
@@ -12,10 +10,7 @@ class AdminLoginDiv extends Component {
                        inputPass: '',
                        checkAdminLogin: false};
     }
-    
-    checkAdminLogin = (e) => {
-        this.setState({checkAdminLogin: true})
-    }
+
     
     render() {
         
@@ -43,17 +38,12 @@ class AdminLoginDiv extends Component {
     }
     checkAdminLogin = event => {
         
-        
-        let action = actionCheckAdmin(this.state.input);
-        this.props.dispatch(action)
-        
         if(this.state.inputUser === "admin" && this.state.inputPass === "admin") {
             
         this.setState({checkAdminLogin: true})
            console.log("Admin Logged in")
                
-            
-        } else {
+            } else {
             alert("WRONG")
          console.log("Admin Failed to login")
         }
@@ -62,11 +52,4 @@ class AdminLoginDiv extends Component {
     
 }
 
-    let mapStateToProps = state => {
-	return {
-		input: state.input
-	}
-}
-
-
-export default connect (mapStateToProps) (AdminLoginDiv);
+export default AdminLoginDiv;

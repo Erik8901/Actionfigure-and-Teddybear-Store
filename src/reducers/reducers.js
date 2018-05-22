@@ -2,9 +2,6 @@ import {
   combineReducers
 } from 'redux';
 
-
-
-
 const reducer = (state = 0 , action) => {
     switch (action.type) {
         case "ADD":
@@ -33,15 +30,8 @@ const productReducer = (state = [], action) => {
   }
 }
 
-const adminReducer = (state = '',action) => {
-    switch (action.type) {
-        case "ADMIN_LOGIN":
-            return state
+    
 
-        default :
-            return state
-    }
-}
 
 const addReducer = (state = {},action) => {
     console.log(action)
@@ -134,8 +124,7 @@ let rootReducer = combineReducers({
   products: productReducer,
   listOfAddedProducts: listOfAddedProductsReducer,
   pastPresentFuture: pastPresentFutureReducer
-  //    value: counterReducer,
-  //    numberOfClicks: clicksReducer
+
 });
 
 
