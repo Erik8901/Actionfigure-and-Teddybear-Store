@@ -50,12 +50,12 @@ class AdminLoginDiv extends Component {
         if(this.state.inputUser === "admin" && this.state.inputPass === "admin") {
 
         this.setState({checkAdminLogin: true})
-           console.log("Admin Logged in")
+           // console.log("Admin Logged in")
 
 
         } else {
             alert("WRONG")
-         console.log("Admin Failed to login")
+         // console.log("Admin Failed to login")
         }
 
     }
@@ -64,7 +64,8 @@ class AdminLoginDiv extends Component {
 
     let mapStateToProps = state => {
 	return {
-		input: state.input
+    products: state.products,
+    newProduct: state.newProduct
 	}
 }
 

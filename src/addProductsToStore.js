@@ -27,9 +27,7 @@ class AddProductsToStore extends Component {
                 Amount:<input type="text" placeholder="productAmount"
                 onChange={e => this.setState({ inputAmount: e.target.value})}/>
                 <br/><button onClick={this.addToStore}>Add to Store</button>
-                <button>Remove from Store
-                </button>
-
+                <button>Remove from Store</button>
             </div>
 
     )
@@ -42,8 +40,8 @@ class AddProductsToStore extends Component {
     addToStore = event => {
         let action = actionAddToStore({
             name: this.state.inputName,
-            price: this.state.inputPrice,
-            amount: this.state.inputAmount,
+            price: Number(this.state.inputPrice),
+            amount: Number(this.state.inputAmount),
             key: this.state.inputName+this.state.inputPrice
         });
         this.props.dispatch(action);
@@ -55,7 +53,7 @@ let mapStateToProps = state => {
   console.log(state)
 	return {
       products: state.products,
-  		newProduct: state.newProduct
+  		// newProduct: state.newProduct
 	}
 }
 

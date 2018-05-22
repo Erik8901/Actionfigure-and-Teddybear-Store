@@ -28,6 +28,7 @@ class ProductsInStore extends Component {
 
 let mapStateToProps = state => {
   console.log(state.products)
-  return {products: state.products}
+  return {products: state.products,
+          newProduct: state.newProduct}
 }
 export default connect(mapStateToProps)(ProductsInStore);
