@@ -47,7 +47,6 @@ class AddProductsToStore extends Component {
 }
 
 let mapStateToProps = state => {
-  console.log(state)
 	return {
       products: state.products,
       actionUndo: state.products.past.length > 0,

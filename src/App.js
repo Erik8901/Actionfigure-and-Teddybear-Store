@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        
+
         <ProductsInStore />
         <AdminLogin  />
 
@@ -26,7 +26,6 @@ class App extends Component {
   }
 
   componentDidUpdate(){
-    console.log(this.props)
   }
 }
 // <Template/>

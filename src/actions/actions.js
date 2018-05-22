@@ -20,6 +20,24 @@ let actionAddToCart = (productKey) => {
   }
 }
 
+let updateCart = (o) =>{
+  return {
+    type: "UPDATE_CART",
+    ob: o,
+  }
+}
+let regret = ()=>{
+  return {
+    type:"UNDO_CART",
+  }
+}
+
+let redo = ()=>{
+  return {
+    type:"REDO_CART",
+  }
+}
+
 let actionCheckAdmin = () => {
     return {
         type: "ADMIN_LOGIN"
@@ -53,6 +71,8 @@ export {
   actionAddToStore,
   actionAddToCart,
   actionRedo,
-  actionUndo
-
+  actionUndo,
+  updateCart,
+  regret,
+  redo
   };

@@ -1,23 +1,25 @@
-<<<<<<< HEAD
-=======
 
->>>>>>> 01e984508feac93b645569c7af2cf8bac4e75c28
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {undoProduct} from "./actions/actions.js"
+import {regret} from "./actions/actions.js"
+import {redo} from "./actions/actions.js"
 
 class Cart extends Component {
 
   componentDidUpdate(){
-    console.log(this.props)
+    console.log(this)
+    console.log(this.props.addToCart.cartPresentList)
   }
 
   render(){
 
 
-
         //
-        const listCart = this.props.listOfAddedProducts.map( (x,index) =>
+
+
+        const listCart = this.props.addToCart.cartPresentList.map( (x,index) =>
+
           (
           <li className="addedProd" key={x.name + x.price + index}>
             <span>X</span>
@@ -28,17 +30,26 @@ class Cart extends Component {
         )
 
         let totalVal =0;
-
-        let totalCost = this.props.listOfAddedProducts.map(x => {
+        let totalCost = this.props.addToCart.cartPresentList.map(x => {
 
             totalVal += Number(x.price)
         })
 
+      this.checkLength = (length) =>{
+          if(length>0){
+            return true
+          }else{
+            return false
+          }
+      }
         return (
       <div id="cart">
-        <button onClick={e => this.props.dispatch(undoProduct())}>Regret</button>
+        <div>
+          <button onClick={e => this.props.dispatch(regret())}>Regret</button>
+          <button onClick={e => this.props.dispatch(redo())}>Undo</button>
+        </div>
         <h5>Your cart</h5>
-        <span>Total products {this.props.listOfAddedProducts.length}</span>
+        <span>Total products {this.props.addToCart.cartPresentList.length}</span>
 
         <ul>{listCart}</ul>
 
@@ -49,14 +60,14 @@ class Cart extends Component {
 }
 
 
+
 let mapStateToProps = state => {
-  // console.log(state.products)
-  // console.log(state.products.amount)
-  return {
-    totalAdded: state.totalAdded,
-    listOfAddedProducts: state.listOfAddedProducts,
-  // amount: state.products.amount
-  }
+
+    return {
+      addToCart: state.addToCart,
+    }
+
+
 }
 
 

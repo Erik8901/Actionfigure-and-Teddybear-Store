@@ -19,12 +19,8 @@ import {
 // }
 
 const productReducer = (state = {past: [], present: [], future: []}, action) => {
-  // console.log(state.present.map( x => x.key  === action.key  ? {...x, amount: x.amount + action.oneLess} : x))
-  // console.log(state.present.map( x => x.key))
   switch (action.type) {
     case "BUY_PRODUCTS":
-    console.log(action.type)
-    console.log(state)
     return {
         past: [...state.past],
       present: [...state.present.map( x => x.key === action.key ? {...x, amount:x.amount + action.oneLess}  : x)],
@@ -33,12 +29,7 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
 
   }
     case "ADD_TO_STORE":
-    console.log(action.type)
     console.log(state)
-    console.log(state.past)
-    console.log(state.present)
-    console.log(state.future)
-    console.log([...state.present, action.newProduct])
         return {
           past: [...state.past, state.present],
           present: [...state.present, action.newProduct],
@@ -46,10 +37,7 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
         }
 
     case "UNDO_PRODUCT":
-    console.log(state)
-    console.log(state.past)
     let lastPast = state.past[state.past.length - 1];
-    console.log(lastPast)
 
     return {
     past: state.past.filter( x => x !== lastPast ),
@@ -58,8 +46,6 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
   };
 
 case "REDO_PRODUCT":
-console.log(state.future)
-console.log(state.future[0])
   let firstFuture = state.future[0];
 
   return {
@@ -77,12 +63,54 @@ console.log(state.future[0])
   }
 }
 
+let cartReducer = (state={cartPastList:[], cartPresentList:{}, cartFutureList:[]}, action) =>{
+
+    switch (action.type) {
+
+      case "UPDATE_CART":
+      let ob= action.ob;
+      console.log(state)
+      let length = state.cartPresentList.length;
+
+
+          return {
+              cartPastList:[...state.cartPastList, state.cartPresentList],
+              cartPresentList:[...state.cartPresentList, ob],
+              cartFutureList:[]
+          }
+        break;
+
+      case "UNDO_CART":
+      console.log(state)
+        const lastPast = state.cartPastList[state.cartPastList.length - 1];
+        return {
+          cartPastList:state.cartPastList.filter(x => x!== lastPast),
+          cartPresentList:lastPast,
+          cartFutureList:[state.cartPresentList, ...state.cartFutureList],
+        }
+        break;
+
+        case "REDO_CART":
+          let firstFuture = state.cartFutureList[0];
+          console.log(firstFuture)
+
+          return {
+            past: [...state.cartPastList, state.cartPresentList],
+            present: firstFuture,
+            future: state.cartFutureList.filter(x => x !== firstFuture)
+          };
+      default:
+        return state
+
+    }
+}
 
 
 
 let rootReducer = combineReducers({
   // items: reducer,
   products: productReducer,
+  addToCart: cartReducer,
   // newProduct: addProductsReducer,
   //    value: counterReducer,
       // input: adminReducer,
