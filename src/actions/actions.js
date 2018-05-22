@@ -27,19 +27,32 @@ let actionCheckAdmin = () => {
 }
 
 let actionAddToStore = (o) => {
-  console.log(o);
+  // console.log(o);
     return {
         type: "ADD_TO_STORE",
         newProduct: o
     }
 }
 
+let actionUndo = () => {
+  return {
+    type: "UNDO_PRODUCT"
+  }
+}
+
+let actionRedo = () => {
+  return {
+    type: "REDO_PRODUCT"
+  }
+}
 
 export {
   actionAddItem,
   actionRemoveItem,
   actionCheckAdmin,
   actionAddToStore,
-  actionAddToCart
+  actionAddToCart,
+  actionRedo,
+  actionUndo
 
   };

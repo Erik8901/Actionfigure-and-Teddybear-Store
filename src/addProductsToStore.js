@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import './ProductsInStore.css'
-import { actionAddToStore} from './actions/actions.js';
-import { ProductsInStore } from './ProductsInStore.js'
+import { actionAddToStore, actionRedo, actionUndo} from './actions/actions.js';
+// import { ProductsInStore } from './ProductsInStore.js'
 
 class AddProductsToStore extends Component {
     constructor(props) {
@@ -27,13 +27,11 @@ class AddProductsToStore extends Component {
                 Amount:<input type="text" placeholder="productAmount"
                 onChange={e => this.setState({ inputAmount: e.target.value})}/>
                 <br/><button onClick={this.addToStore}>Add to Store</button>
-                <button>Remove from Store</button>
+                <button onClick={e => this.props.dispatch(actionUndo())} disabled={!this.props.actionUndo}>Undo</button>
+                <button onClick={e => this.props.dispatch(actionRedo())} disabled={!this.props.actionRedo}>Redo</button>
             </div>
-
-    )
-
-
-    }
+          )
+        }
 
 
 
@@ -46,14 +44,14 @@ class AddProductsToStore extends Component {
         });
         this.props.dispatch(action);
     }
-
 }
 
 let mapStateToProps = state => {
   console.log(state)
 	return {
       products: state.products,
-  		// newProduct: state.newProduct
+      actionUndo: state.products.past.length > 0,
+		    actionRedo: state.products.future.length > 0
 	}
 }
 

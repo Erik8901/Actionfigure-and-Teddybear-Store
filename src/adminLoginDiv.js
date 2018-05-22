@@ -1,16 +1,17 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import { showLogin } from './actions/actions.js';
-import { actionCheckAdmin } from './actions/actions.js';
+// import { showLogin } from './actions/actions.js';
+// import { actionCheckAdmin } from './actions/actions.js';
 import  AddProductsToStore  from './addProductsToStore.js';
 
 class AdminLoginDiv extends Component {
     constructor(props) {
 		super(props);
-		this.state = { inputUser: '',
-                       inputPass: '',
-                       checkAdminLogin: false};
+		this.state = {
+      inputUser: '',
+      inputPass: '',
+      checkAdminLogin: false};
     }
 
     checkAdminLogin = (e) => {

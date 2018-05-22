@@ -9,6 +9,7 @@ import rootReducer from './reducers/reducers.js'
 
 const initialState = {
 
+  
 
   products: {
 
