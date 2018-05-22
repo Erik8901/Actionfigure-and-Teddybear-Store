@@ -74,6 +74,12 @@ li>h3 {
   left:0;
 }
 
+#cart > button{
+  position: absolute;
+  top:0;
+  left:0;
+}
+
 ul .items {
   list-style: none;
 }

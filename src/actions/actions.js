@@ -30,10 +30,34 @@ let addProduct = (name, price, key) => {
   }
 }
 
+let addProductToPresent = (name, price, key) =>{
+  return{
+    type:"ADD_TO_PRESENT",
+    name: name,
+    price:price,
+    key:key,
+  }
+}
+
+
+
+let undoProduct = () => {
+  return {
+      type: "UNDO_PRODUCT"
+  }
+}
+
+
 export {
   actionAddItem,
   actionRemoveItem,
   actionAddToCart,
-  addProduct
- // actionAddToStore,
-};
+  addProduct,
+
+  
+  addProductToPresent,
+  undoProduct
+
+  };
+
+
