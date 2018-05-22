@@ -31,23 +31,35 @@ let addProduct = (name, price, key) => {
   }
 }
 
+let addProductToPresent = (name, price, key) =>{
+  return{
+    type:"ADD_TO_PRESENT",
+    name: name,
+    price:price,
+    key:key,
+  }
+}
+
 let actionCheckAdmin = () => {
     return {
         type: "ADMIN_LOGIN"
     }
 }
 
-
+let undoProduct = () => {
+  return {
+      type: "UNDO_PRODUCT"
+  }
+}
 
 export {
   actionAddItem,
   actionRemoveItem,
   actionAddToCart,
-  addProduct
+  addProduct,
 
   actionCheckAdmin,
-  actionAddToStore,
-
-
+  addProductToPresent,
+  undoProduct
 
   };

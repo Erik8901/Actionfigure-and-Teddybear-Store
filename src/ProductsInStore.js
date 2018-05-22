@@ -8,7 +8,7 @@ import AddProductsToStore from './addProductsToStore.js';
 import { actionAddToCart } from './actions/actions.js';
 import {addProduct} from "./actions/actions.js"
 import Cart from "./cart.js"
-
+import {addProductToPresent} from "./actions/actions.js"
 
 class ProductsInStore extends Component {
 
@@ -34,8 +34,10 @@ class ProductsInStore extends Component {
 
 
     this.handleClick =(name, price)=>{
-      self.props.dispatch(actionAddToCart(name + price))
-      self.props.dispatch(addProduct(name, price, name + price))
+      self.props.dispatch(actionAddToCart(name + price));
+      self.props.dispatch(addProduct(name, price, name + price));
+      self.props.dispatch(addProductToPresent(name, price, name + price));
+
     }
 
     productStoreContent = <ul className="container">{listOfProducts}</ul>
@@ -44,6 +46,9 @@ class ProductsInStore extends Component {
       <Cart/>
     </div>)
   }
+
+
+  
 }
 
 let mapStateToProps = state => {

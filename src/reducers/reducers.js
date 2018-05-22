@@ -32,12 +32,12 @@ const productReducer = (state = [], action) => {
       return state;
   }
 }
-    
+
 const adminReducer = (state = '',action) => {
     switch (action.type) {
         case "ADMIN_LOGIN":
             return state
-            
+
         default :
             return state
     }
@@ -49,7 +49,7 @@ const addReducer = (state = {},action) => {
     switch (action.type) {
         case "ADD_TO_STORE":
             return state
-            
+
         default:
             return state
     }
@@ -57,9 +57,9 @@ const addReducer = (state = {},action) => {
 
 
 const listOfAddedProductsReducer = (state = {}, action) => {
-    console.log(state.listInCart)
     // {...x, b: [...x.b] }
     // [...state, {name: action.name, price: action.price, key:action.key}]
+    console.log(state)
     switch (action.type) {
       case "ADD_TO_CART":
 
@@ -73,13 +73,68 @@ const listOfAddedProductsReducer = (state = {}, action) => {
 
 }
 
+
+const pastPresentFutureReducer = (state = {listOfAddedProductsPast:[],AddedProductsPresent:{},listOfAddedProductsFuture:[]}, action) => {
+  // console.log({...state.AddedProductsPresent, {name:action.name}})
+
+  //{...x, b: [...x.b] };
+  console.log(state)
+
+    switch (action.type) {
+      case "ADD_TO_PRESENT":
+
+
+            if(state.AddedProductsPresent.name === undefined ){
+              console.log("state i undefined ", state)
+
+              return  {
+                listOfAddedProductsPast:[],
+                AddedProductsPresent : {...state.AddedProductsPresent, name:action.name, price:action.price},
+                listOfAddedProductsFuture:[]
+              }
+
+            }else{
+              console.log("state när present har ett värde ", state)
+
+              return  {
+                listOfAddedProductsPast:[...state.listOfAddedProductsPast, state.AddedProductsPresent],
+                AddedProductsPresent : {...state.AddedProductsPresent, name:action.name, price:action.price},
+                listOfAddedProductsFuture:[]
+              }
+            }
+
+
+        break;
+      case "UNDO_PRODUCT":
+      console.log(action.type)
+
+          if(state.listOfAddedProducts=== undefined){
+
+            return state
+
+          }else{
+            const lastPast = state.listOfAddedProductsPast[state.listOfAddedProductsPast.length - 1];
+            return {
+            		listOfAddedProductsPast: state.listOfAddedProductsPast.filter(x => x!== lastPast),
+            		AddedProductsPresent: lastPast,
+            		listOfAddedProductsFuture: [state.AddedProductsPresent, ...state.listOfAddedProductsFuture]
+	             };
+
+          }
+
+
+      default:
+        return state
+    }
+
+}
+
 let rootReducer = combineReducers({
   // items: reducer,
   products: productReducer,
-  listOfAddedProducts: listOfAddedProductsReducer
-
+  listOfAddedProducts: listOfAddedProductsReducer,
+  pastPresentFuture: pastPresentFutureReducer
   //    value: counterReducer,
-      input: adminReducer,
   //    numberOfClicks: clicksReducer
 });
 

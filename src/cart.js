@@ -1,11 +1,13 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-
+import {undoProduct} from "./actions/actions.js"
 
 class Cart extends Component {
 
-
+  componentDidUpdate(){
+    console.log(this.props)
+  }
 
   render(){
 
@@ -14,7 +16,6 @@ class Cart extends Component {
         //
         const listCart = this.props.listOfAddedProducts.map( (x,index) =>
           (
-
           <li className="addedProd" key={x.name + x.price + index}>
             <span>X</span>
           <span>{x.name}</span><br/>
@@ -30,10 +31,9 @@ class Cart extends Component {
             totalVal += Number(x.price)
         })
 
-        console.log(totalVal);
-    return (
+        return (
       <div id="cart">
-
+        <button onClick={e => this.props.dispatch(undoProduct())}>Regret</button>
         <h5>Your cart</h5>
         <span>Total products {this.props.listOfAddedProducts.length}</span>
 
@@ -44,6 +44,7 @@ class Cart extends Component {
     )
   }
 }
+
 
 let mapStateToProps = state => {
   // console.log(state.products)

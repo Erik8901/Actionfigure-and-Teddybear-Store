@@ -9,16 +9,16 @@ import rootReducer from './reducers/reducers.js'
 
 const initialState = {
 
-   
+
     inputUser: '',
     inputPass: '',
-    
+
     newProduct: {
         inputName: '',
         inputPrice: '',
         inputAmount: ''
     },
-    
+
 
   products: [{
       name: "Teddybear Johan",
@@ -69,9 +69,13 @@ const initialState = {
       key: "Dollface199"
     },
   ],
-  listOfAddedProducts:[],
+  pastPresentFuture: {
+    listOfAddedProductsPast:[],
+    AddedProductsPresent:{},
+    listOfAddedProductsFuture: [],
+  },
 
-
+  listOfAddedProducts:[]
 
 }
 

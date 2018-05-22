@@ -18,11 +18,15 @@ class App extends Component {
         <ProductsInStore />
         <AdminLogin  />
 
-        
-            
+
+
       </div>
-        
+
     );
+  }
+
+  componentDidUpdate(){
+    console.log(this.props)
   }
 }
 // <Template/>
