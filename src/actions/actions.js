@@ -26,10 +26,11 @@ let actionCheckAdmin = () => {
     }
 }
 
-let actionAddToStore = name => {
+let actionAddToStore = (o) => {
+  console.log(o);
     return {
         type: "ADD_TO_STORE",
-        name: name
+        newProduct: o
     }
 }
 
@@ -37,11 +38,8 @@ let actionAddToStore = name => {
 export {
   actionAddItem,
   actionRemoveItem,
-
   actionCheckAdmin,
   actionAddToStore,
-
-
   actionAddToCart
 
   };

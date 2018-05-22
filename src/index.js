@@ -9,18 +9,13 @@ import rootReducer from './reducers/reducers.js'
 
 const initialState = {
 
-   
-    inputUser: '',
-    inputPass: '',
-    
-    newProduct: {
-        inputName: '',
-        inputPrice: '',
-        inputAmount: ''
-    },
-    
 
-  products: [{
+  products: {
+
+    past: [],
+
+    present:[
+      {
       name: "Teddybear Johan",
       price: "99kr",
       amount: 2,
@@ -67,9 +62,12 @@ const initialState = {
       price: "199kr",
       amount: 17,
       key: "Dollface199kr"
-    },
+    }
   ],
 
+  future: [],
+
+}
 }
 
 const store = createStore(rootReducer, initialState,

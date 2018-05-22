@@ -19,34 +19,21 @@ const reducer = (state = 0 , action) => {
     }
 }
 
-const productReducer = (state = [], action) => {
-  console.log("productReducer: ", action);
+const productReducer = (state = {past: [], present: [], future: []}, action) => {
+
+  // console.log(state.present.map( x => x.key  === action.key  ? {...x, amount: x.amount + action.oneLess} : x))
   switch (action.type) {
     case "BUY_PRODUCTS":
-    return state.map( x => x.key === action.key  ? {...x, amount: x.amount + action.oneLess} : x)
-
+    return state.map( x => x.key === action.key ? {...x, amount:x.amount + action.oneLess}  : x)
     default:
-      return state;
+      return state.present;
   }
 }
-    
-const adminReducer = (state = '',action) => {
-    switch (action.type) {
-        case "ADMIN_LOGIN":
-            return state
-            
-        default :
-            return state
-    }
-}
 
-const addReducer = (state = {},action) => {
-    console.log(action)
-    console.log(state)
+const addProductsReducer = (state =[],action) => {
     switch (action.type) {
         case "ADD_TO_STORE":
-            return state
-            
+            return [...state, action.newProduct]
         default:
             return state
     }
@@ -56,9 +43,9 @@ const addReducer = (state = {},action) => {
 let rootReducer = combineReducers({
   // items: reducer,
   products: productReducer,
-    products: addReducer,
+  newProduct: addProductsReducer,
   //    value: counterReducer,
-      input: adminReducer,
+      // input: adminReducer,
   //    numberOfClicks: clicksReducer
 });
 

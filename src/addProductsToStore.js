@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import ProductsInStore from './ProductsInStore.js'
 import './ProductsInStore.css'
 import { actionAddToStore} from './actions/actions.js';
+import { ProductsInStore } from './ProductsInStore.js'
 
 class AddProductsToStore extends Component {
     constructor(props) {
@@ -12,10 +12,10 @@ class AddProductsToStore extends Component {
             inputName: '',
             inputPrice: '',
             InputAmount: '',
-            addToStore: false
+            // addToStore: false
         }
     }
-    
+
     render() {
         return (
             <div className="AddProductsDiv">
@@ -26,38 +26,37 @@ class AddProductsToStore extends Component {
                 onChange={e => this.setState({ inputPrice: e.target.value})}/>
                 Amount:<input type="text" placeholder="productAmount"
                 onChange={e => this.setState({ inputAmount: e.target.value})}/>
-                <br/><button onClick={this.addToStore} type="submit">Add to Store</button>
+                <br/><button onClick={this.addToStore}>Add to Store</button>
                 <button>Remove from Store
                 </button>
-            
+
             </div>
-        
+
     )
-    
-    
+
+
     }
+
+
+
     addToStore = event => {
-     
-        let newProduct = {
+        let action = actionAddToStore({
             name: this.state.inputName,
             price: this.state.inputPrice,
-            amount: this.state.inputAmount
-        }
-        console.log(newProduct)
-        this.props.products.push(newProduct)
-        console.log(this.props.products)
+            amount: this.state.inputAmount,
+            key: this.state.inputName+this.state.inputPrice
+        });
+        this.props.dispatch(action);
     }
 
 }
 
 let mapStateToProps = state => {
+  console.log(state)
 	return {
-		products: state.products
+      products: state.products,
+  		newProduct: state.newProduct
 	}
 }
-
-//name: "Teddybear Johan",
-//      price: "99kr",
-//      amount: 2
 
 export default connect (mapStateToProps) (AddProductsToStore);
