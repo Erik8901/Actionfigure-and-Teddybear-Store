@@ -5,14 +5,14 @@ let actionAddItem = () => {
 }
 
 let actionRemoveItem = () => {
-    return {
-        type: "REMOVE"
+
+  return {
+    type: "REMOVE"
   }
 }
 
 let actionAddToCart = (productKey) => {
   // console.log(productKey)
-  console.log("lalla")
   return {
     type: "BUY_PRODUCTS",
     key: productKey,
@@ -20,44 +20,39 @@ let actionAddToCart = (productKey) => {
   }
 }
 
-let addProduct = (name, price, key) => {
-  console.log("ofkoksgo")
-  return{
-    type:"ADD_TO_CART",
-    name: name,
-    price:price,
-    key:key,
-  }
+let actionCheckAdmin = () => {
+    return {
+        type: "ADMIN_LOGIN"
+    }
 }
 
-let addProductToPresent = (name, price, key) =>{
-  return{
-    type:"ADD_TO_PRESENT",
-    name: name,
-    price:price,
-    key:key,
-  }
+let actionAddToStore = (o) => {
+  // console.log(o);
+    return {
+        type: "ADD_TO_STORE",
+        newProduct: o
+    }
 }
 
-
-
-let undoProduct = () => {
+let actionUndo = () => {
   return {
-      type: "UNDO_PRODUCT"
+    type: "UNDO_PRODUCT"
   }
 }
 
+let actionRedo = () => {
+  return {
+    type: "REDO_PRODUCT"
+  }
+}
 
 export {
   actionAddItem,
   actionRemoveItem,
+  actionCheckAdmin,
+  actionAddToStore,
   actionAddToCart,
-  addProduct,
-
-  
-  addProductToPresent,
-  undoProduct
+  actionRedo,
+  actionUndo
 
   };
-
-

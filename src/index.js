@@ -10,71 +10,64 @@ import rootReducer from './reducers/reducers.js'
 const initialState = {
 
 
-    newProduct: {
 
-        inputName: '',
-        inputPrice: '',
-        inputAmount: ''
-    },
+  products: {
 
+    past: [],
 
-  products: [{
+    present:[
+      {
       name: "Teddybear Johan",
-      price: "99",
+      price: "99kr",
       amount: 2,
-      key: "Teddybear Johan99"
+      key: "Teddybear Johan99kr"
     },
     {
       name: "Teddybear Hackerman",
-      price: "5",
+      price: "5kr",
       amount: 94,
-      key: "Teddybear Hackerman5"
+      key: "Teddybear Hackerman5kr"
     },
     {
       name: "Teddybear thatzita",
-      price: "899",
+      price: "899kr",
       amount: 27,
-      key: "Teddybear thatzita899"
+      key: "Teddybear thatzita899kr"
     },
     {
       name: "Teddybear Pedro",
-      price: "39",
+      price: "39kr",
       amount: 9,
-      key: "Teddybear Pedro39"
+      key: "Teddybear Pedro39kr"
     },
     {
       name: "Johan ActionMan",
-      price: "1999",
+      price: "1999kr",
       amount: 1,
-      key: "Johan ActionMan1999"
+      key: "Johan ActionMan1999kr"
     },
     {
       name: "Transformer Johan",
-      price: "7899",
+      price: "7899kr",
       amount: 37,
-      key: "Transformer Johan7899"
+      key: "Transformer Johan7899kr"
     },
     {
       name: "Transformer Hackerman",
-      price: "4",
+      price: "4kr",
       amount: 2087,
-      key: "Transformer Hackerman4"
+      key: "Transformer Hackerman4kr"
     },
     {
       name: "Dollface",
-      price: "199",
+      price: "199kr",
       amount: 17,
-      key: "Dollface199"
-    },
+      key: "Dollface199kr"
+    }
   ],
-  pastPresentFuture: {
-    listOfAddedProductsPast:[],
-    AddedProductsPresent:{},
-    listOfAddedProductsFuture: [],
-  },
 
-  listOfAddedProducts:[]
-
+  future: [],
+}
 }
 
 const store = createStore(rootReducer, initialState,
