@@ -24,6 +24,10 @@ class App extends Component {
 
     );
   }
+
+  componentDidUpdate(){
+    console.log(this.props)
+  }
 }
 // <Template/>
 export default App;
