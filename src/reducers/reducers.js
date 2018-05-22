@@ -9,16 +9,27 @@ const reducer = (state = 0 , action) => {
 
         case "REMOVE":
             return state - 1
-
-
+        
         default:
             return state
     }
 }
 
+const adminLoginReducer = (state = {}, action) => {
+    console.log(state.adminName)
+    console.log(action.type)
+    switch(action.type) {
+        case "ADMIN_LOGIN":
+            return state
+        default:
+            return state
+    }
+    
+}
+
 const productReducer = (state = [], action) => {
   console.log("productReducer: ", action);
-  console.log(action.type)
+ // console.log(action.type)
 
   switch (action.type) {
     case "BUY_PRODUCTS":
@@ -33,7 +44,7 @@ const productReducer = (state = [], action) => {
 
 
 const addReducer = (state = {},action) => {
-    console.log(action)
+   // console.log(action)
     console.log(state)
     switch (action.type) {
         case "ADD_TO_STORE":
@@ -63,10 +74,11 @@ const listOfAddedProductsReducer = (state = {}, action) => {
 }
 
 let rootReducer = combineReducers({
+  admin: adminLoginReducer,
   // items: reducer,
   products: productReducer,
   listOfAddedProducts: listOfAddedProductsReducer,
-
+  
   //    value: counterReducer,
       
   //    numberOfClicks: clicksReducer

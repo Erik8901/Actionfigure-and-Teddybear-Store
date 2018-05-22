@@ -27,6 +27,7 @@ class AddProductsToStore extends Component {
                 Amount:<input type="text" placeholder="productAmount"
                 onChange={e => this.setState({ inputAmount: e.target.value})}/>
                 <br/><button onClick={this.addToStore} type="submit">Add to Store</button>
+                
                 <button>Remove from Store
                 </button>
             

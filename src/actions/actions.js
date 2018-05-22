@@ -10,6 +10,14 @@ let actionRemoveItem = () => {
   }
 }
 
+let actionLoginAdmin = (admin) => {
+    console.log(admin)
+    return {
+        type: "ADMIN_LOGIN",
+        admin: admin,
+        
+    }
+}
 let actionAddToCart = (productKey) => {
   // console.log(productKey)
   console.log("lalla")
@@ -34,6 +42,7 @@ export {
   actionAddItem,
   actionRemoveItem,
   actionAddToCart,
-  addProduct
+  addProduct,
+  actionLoginAdmin 
  // actionAddToStore,
 };

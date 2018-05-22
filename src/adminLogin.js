@@ -15,6 +15,7 @@ class AdminLogin extends Component {
    }
     showLogin = (event) => {
        this.setState({show: !this.state.show})
+       
     }
     
     render() {
@@ -33,10 +34,17 @@ class AdminLogin extends Component {
     
     
     }
-    
+
+   
+
+
 }
 
 
 
-export default  AdminLogin;
+
+
+
+
+export default AdminLogin;
 

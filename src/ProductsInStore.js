@@ -28,6 +28,7 @@ class ProductsInStore extends Component {
       <span>Price: {x.price}</span><br/>
       <span>Amount in store: {x.amount}</span>
       <button className="buyItem" disabled={x.amount ===0} onClick={e => this.handleClick(x.name, x.price)}>Add</button>
+      <button className="removeItem">Remove</button>
       </li>
 
     ));

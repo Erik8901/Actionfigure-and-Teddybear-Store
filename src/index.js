@@ -8,6 +8,11 @@ import {createStore} from 'redux';
 import rootReducer from './reducers/reducers.js'
 
 const initialState = {
+    
+    admin: {
+        adminName: 'admin',
+        adminPassword: 'admin'
+    },
 
    newProduct: {
         inputName: '',
