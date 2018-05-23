@@ -21,6 +21,7 @@ let actionAddToCart = (productKey) => {
 }
 
 let updateCart = (o) =>{
+  // console.log(o)
   return {
     type: "UPDATE_CART",
     ob: o,

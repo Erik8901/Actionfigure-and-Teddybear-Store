@@ -74,7 +74,7 @@ const initialState = {
     cartPastList:[],
     cartPresentList:[],
     cartFutureList:[],
-    // cartList:[]
+    cartHistory:[]
   }
 }
 

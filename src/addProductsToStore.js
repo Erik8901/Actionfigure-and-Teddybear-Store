@@ -15,7 +15,12 @@ class AddProductsToStore extends Component {
             // addToStore: false
         }
     }
-
+    componentDidUpdate(){
+      // console.log(this)
+      console.log("PAST PRODUCTS: ", this.props.products.past)
+      console.log("PRESENT PRODUCTS: ", this.props.products.present)
+      console.log("FUTURE PRODUCTS: ", this.props.products.future)
+    }
     render() {
         return (
             <div className="AddProductsDiv">
