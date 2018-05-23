@@ -9,7 +9,12 @@ import rootReducer from './reducers/reducers.js'
 
 const initialState = {
     
+    
+    
+   
+    
     admin: {
+        loggedInAsAdmin: false,
         adminName: 'admin',
         adminPassword: 'admin'
     },

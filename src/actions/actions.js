@@ -11,11 +11,12 @@ let actionRemoveItem = () => {
 }
 
 let actionLoginAdmin = (admin) => {
-    console.log(admin)
+   console.log(admin)
     return {
         type: "ADMIN_LOGIN",
-        admin: admin,
-        
+        adminName: admin.adminName,
+        adminPassword: admin.adminPassword,
+        loggedInAsAdmin: admin.loggedInAsAdmin
     }
 }
 let actionAddToCart = (productKey) => {

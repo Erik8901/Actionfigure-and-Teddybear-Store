@@ -15,12 +15,32 @@ const reducer = (state = 0 , action) => {
     }
 }
 
-const adminLoginReducer = (state = {}, action) => {
-    console.log(state.adminName)
-    console.log(action.type)
+const adminLoginReducer = (state = {loggedInAsAdmin: false, adminName: 'admin', adminPassword: 'admin'}, action) => {
+   console.log(action.loggedInAsAdmin)
+    console.log(action.adminName)
+    console.log(state)
+    
+    let bool = true;
     switch(action.type) {
         case "ADMIN_LOGIN":
-            return state
+            if(action.adminName === state.adminName && action.adminPassword === state.adminPassword) {
+                console.log("done")
+                
+                return {
+                    loggedInAsAdmin: true,
+                    adminName: state.adminName,
+                    adminPassword: state.adminName
+                }
+                    
+              //  <AddProductsToStore/>
+                
+            
+            
+            
+            } else {
+                console.log("fail")
+            }
+            
         default:
             return state
     }
@@ -28,7 +48,7 @@ const adminLoginReducer = (state = {}, action) => {
 }
 
 const productReducer = (state = [], action) => {
-  console.log("productReducer: ", action);
+ // console.log("productReducer: ", action);
  // console.log(action.type)
 
   switch (action.type) {
@@ -44,8 +64,7 @@ const productReducer = (state = [], action) => {
 
 
 const addReducer = (state = {},action) => {
-   // console.log(action)
-    console.log(state)
+    
     switch (action.type) {
         case "ADD_TO_STORE":
             return state
@@ -57,7 +76,7 @@ const addReducer = (state = {},action) => {
 
 
 const listOfAddedProductsReducer = (state = {}, action) => {
-    console.log(state.listInCart)
+    //console.log(state.listInCart)
     // {...x, b: [...x.b] }
     // [...state, {name: action.name, price: action.price, key:action.key}]
     switch (action.type) {
