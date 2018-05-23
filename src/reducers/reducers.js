@@ -5,18 +5,6 @@ import {
 
 
 
-// const reducer = (state = 0 , action) => {
-//     switch (action.type) {
-//         case "ADD":
-//             return state + 1
-//
-//         case "REMOVE":
-//             return state - 1
-//
-//         default:
-//             return state
-//     }
-// }
 
 const productReducer = (state = {past: [], present: [], future: []}, action) => {
   switch (action.type) {
@@ -28,6 +16,7 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
 
 
   }
+
     case "ADD_TO_STORE":
     console.log(state)
         return {
@@ -35,6 +24,7 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
           present: [...state.present, action.newProduct],
           future: []
         }
+
 
     case "UNDO_PRODUCT":
     console.log(state)
@@ -62,6 +52,7 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
       };
   }
 }
+
 
 let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[], cartHistory:[]}, action) =>{
 
@@ -149,6 +140,7 @@ let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[]
 let rootReducer = combineReducers({
   // items: reducer,
   products: productReducer,
+
   addToCart: cartReducer,
   // newProduct: addProductsReducer,
   //    value: counterReducer,

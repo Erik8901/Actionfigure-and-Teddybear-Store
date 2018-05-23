@@ -34,6 +34,7 @@ class ProductsInStore extends Component {
       <Cart />
     </div>)
   }
+
 }
 
 let mapStateToProps = state => {

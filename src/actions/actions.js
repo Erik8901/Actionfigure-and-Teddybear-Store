@@ -33,6 +33,7 @@ let regret = ()=>{
   }
 }
 
+
 let redo = ()=>{
   return {
     type:"REDO_CART",
@@ -75,5 +76,7 @@ export {
   actionUndo,
   updateCart,
   regret,
-  redo
+  redo,
+  decreaseAmount,
+  increaseAmount
   };

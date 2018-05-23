@@ -25,8 +25,7 @@ class App extends Component {
     );
   }
 
-  componentDidUpdate(){
-  }
+
 }
 // <Template/>
 export default App;

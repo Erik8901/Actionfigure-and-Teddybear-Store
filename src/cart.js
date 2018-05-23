@@ -18,6 +18,7 @@ class Cart extends Component {
   render(){
 
 
+
         //
 
         let cartContent;
@@ -87,6 +88,7 @@ class Cart extends Component {
 
 
 let mapStateToProps = state => {
+
   // console.log(state.addToCart);
   // console.log(state);
     return {
@@ -95,7 +97,6 @@ let mapStateToProps = state => {
       actionUndoCart: state.addToCart.cartPastList.length > 0,
       actionRedoCart: state.addToCart.cartFutureList.length > 0
     }
-
 
 }
 
