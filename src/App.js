@@ -18,12 +18,14 @@ class App extends Component {
         <ProductsInStore />
         <AdminLogin  />
 
-        
-            
+
+
       </div>
-        
+
     );
   }
+
+
 }
 // <Template/>
 export default App;

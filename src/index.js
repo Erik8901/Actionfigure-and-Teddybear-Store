@@ -19,14 +19,18 @@ const initialState = {
         adminPassword: 'admin'
     },
 
-   newProduct: {
-        inputName: '',
-        inputPrice: '',
-        inputAmount: ''
-    },
-    
+  admin: {
+       loggedInAsAdmin: false,
+       adminName: 'admin',
+       adminPassword: 'admin'
+   },
 
-  products: [{
+  products: {
+
+    past: [],
+
+    present:[
+      {
       name: "Teddybear Johan",
       price: "99",
       amount: 2,
@@ -73,12 +77,20 @@ const initialState = {
       price: "199",
       amount: 17,
       key: "Dollface199"
-    },
+    }
   ],
-  listOfAddedProducts:[],
 
 
+  future: [],
+},
 
+  addToCart: {
+
+    cartPastList:[],
+    cartPresentList:[],
+    cartFutureList:[],
+    cartHistory:[]
+  }
 }
 
 const store = createStore(rootReducer, initialState,

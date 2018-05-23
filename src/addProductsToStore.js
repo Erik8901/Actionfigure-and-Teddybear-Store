@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-import ProductsInStore from './ProductsInStore.js'
 import './ProductsInStore.css'
-import { actionAddToStore} from './actions/actions.js';
+import { actionAddToStore, actionRedo, actionUndo} from './actions/actions.js';
+// import { ProductsInStore } from './ProductsInStore.js'
 
 class AddProductsToStore extends Component {
     constructor(props) {
@@ -12,10 +12,15 @@ class AddProductsToStore extends Component {
             inputName: '',
             inputPrice: '',
             InputAmount: '',
-            addToStore: false
+            // addToStore: false
         }
     }
-    
+    componentDidUpdate(){
+      // console.log(this)
+      // console.log("PAST PRODUCTS: ", this.props.products.past)
+      // console.log("PRESENT PRODUCTS: ", this.props.products.present)
+      // console.log("FUTURE PRODUCTS: ", this.props.products.future)
+    }
     render() {
         return (
             <div className="AddProductsDiv">
@@ -26,39 +31,40 @@ class AddProductsToStore extends Component {
                 onChange={e => this.setState({ inputPrice: e.target.value})}/>
                 Amount:<input type="text" placeholder="productAmount"
                 onChange={e => this.setState({ inputAmount: e.target.value})}/>
+
                 <br/><button onClick={this.addToStore} type="submit">Add to Store</button>
                 
                 <button>Remove from Store
                 </button>
             
-            </div>
-        
-    )
-    
-    
-    }
-    addToStore = event => {
-     
-        let newProduct = {
-            name: this.state.inputName,
-            price: this.state.inputPrice,
-            amount: this.state.inputAmount
-        }
-        console.log(newProduct)
-        this.props.products.push(newProduct)
-        console.log(this.props.products)
-    }
 
+                <br/><button onClick={this.addToStore}>Add to Store</button>
+                <button onClick={e => this.props.dispatch(actionUndo())} disabled={!this.props.actionUndo}>Undo</button>
+                <button onClick={e => this.props.dispatch(actionRedo())} disabled={!this.props.actionRedo}>Redo</button>
+
+            </div>
+          )
+        }
+
+
+
+    addToStore = event => {
+        let action = actionAddToStore({
+            name: this.state.inputName,
+            price: Number(this.state.inputPrice),
+            amount: Number(this.state.inputAmount),
+            key: this.state.inputName+this.state.inputPrice
+        });
+        this.props.dispatch(action);
+    }
 }
 
 let mapStateToProps = state => {
 	return {
-		products: state.products
+      products: state.products,
+      actionUndo: state.products.past.length > 0,
+		    actionRedo: state.products.future.length > 0
 	}
 }
-
-//name: "Teddybear Johan",
-//      price: "99kr",
-//      amount: 2
 
 export default connect (mapStateToProps) (AddProductsToStore);
