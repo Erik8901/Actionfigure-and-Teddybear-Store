@@ -44,6 +44,21 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
     future: state.future.filter(x => x !== firstFuture)
   };
 
+  case "DECREASE_AMOUNT":
+      return {
+          past: [...state.past],
+        present: [...state.present.map( x => x.key === action.key ? {...x, amount:x.amount + action.oneUp}  : x)],
+          future: [...state.future],
+
+
+    }
+
+    case "INCREASE_AMOUNT":
+        return {
+            past: [...state.past],
+          present: [...state.present.map( x => x.key === action.key ? {...x, amount:x.amount + action.oneLess}  : x)],
+            future: [...state.future],
+      }
     default:
       return {
         past: [...state.past],

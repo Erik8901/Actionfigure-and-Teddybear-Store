@@ -66,6 +66,24 @@ let actionRedo = () => {
   }
 }
 
+let decreaseAmount = (productKey, amount) => {
+  console.log(amount)
+  return {
+    type: "DECREASE_AMOUNT",
+    key: productKey,
+    oneUp: +1
+  }
+}
+
+let increaseAmount  = (productKey, amount) => {
+  console.log(amount)
+  return {
+    type: "INCREASE_AMOUNT",
+    key: productKey,
+    oneLess: -1
+  }
+}
+
 export {
   actionAddItem,
   actionRemoveItem,
