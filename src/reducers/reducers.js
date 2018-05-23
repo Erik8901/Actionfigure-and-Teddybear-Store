@@ -2,6 +2,9 @@ import {
   combineReducers
 } from 'redux';
 
+
+
+
 const reducer = (state = 0 , action) => {
     switch (action.type) {
         case "ADD":
@@ -30,8 +33,15 @@ const productReducer = (state = [], action) => {
   }
 }
 
-    
+const adminReducer = (state = '',action) => {
+    switch (action.type) {
+        case "ADMIN_LOGIN":
+            return state
 
+        default :
+            return state
+    }
+}
 
 const addReducer = (state = {},action) => {
     console.log(action)
@@ -46,84 +56,94 @@ const addReducer = (state = {},action) => {
 }
 
 
-const listOfAddedProductsReducer = (state = {}, action) => {
+const listOfAddedProductsReducer = (state = {
+  listOfAddedProductsPast:[],
+  AddedProductsPresent:{},
+  listOfAddedProductsFuture: [],
+  listOfAddedProducts:[]
+
+}, action) => {
     // {...x, b: [...x.b] }
     // [...state, {name: action.name, price: action.price, key:action.key}]
     console.log(state)
     switch (action.type) {
       case "ADD_TO_CART":
 
-          return  [...state, {name: action.name, price: action.price, key:action.key}]
-
-        break;
-      default:
-        return state
-
-    }
-
-}
-
-
-const pastPresentFutureReducer = (state = {listOfAddedProductsPast:[],AddedProductsPresent:{},listOfAddedProductsFuture:[]}, action) => {
-  // console.log({...state.AddedProductsPresent, {name:action.name}})
-
-  //{...x, b: [...x.b] };
-  console.log(state)
-
-    switch (action.type) {
-      case "ADD_TO_PRESENT":
-
-
-            if(state.AddedProductsPresent.name === undefined ){
-              console.log("state i undefined ", state)
-
-              return  {
-                listOfAddedProductsPast:[],
-                AddedProductsPresent : {...state.AddedProductsPresent, name:action.name, price:action.price},
-                listOfAddedProductsFuture:[]
-              }
-
-            }else{
-              console.log("state när present har ett värde ", state)
-
-              return  {
-                listOfAddedProductsPast:[...state.listOfAddedProductsPast, state.AddedProductsPresent],
-                AddedProductsPresent : {...state.AddedProductsPresent, name:action.name, price:action.price},
-                listOfAddedProductsFuture:[]
-              }
-            }
-
-
-        break;
-      case "UNDO_PRODUCT":
-      console.log(action.type)
-
-          if(state.listOfAddedProducts=== undefined){
-
+          // return  [...state, {name: action.name, price: action.price, key:action.key}]
             return state
-
-          }else{
-            const lastPast = state.listOfAddedProductsPast[state.listOfAddedProductsPast.length - 1];
-            return {
-            		listOfAddedProductsPast: state.listOfAddedProductsPast.filter(x => x!== lastPast),
-            		AddedProductsPresent: lastPast,
-            		listOfAddedProductsFuture: [state.AddedProductsPresent, ...state.listOfAddedProductsFuture]
-	             };
-
-          }
-
-
+        break;
       default:
         return state
+
     }
 
 }
+
+
+// const pastPresentFutureReducer = (state = {listOfAddedProductsPast:[],AddedProductsPresent:{},listOfAddedProductsFuture:[], listOfAddedProducts:[]}, action) => {
+//   // console.log({...state.AddedProductsPresent, {name:action.name}})
+//
+//   //{...x, b: [...x.b] };
+//   console.log(state)
+//
+//     switch (action.type) {
+//       case "ADD_TO_PRESENT":
+//
+//
+//             if(state.AddedProductsPresent.name === undefined ){
+//               console.log("state i undefined ", state)
+//
+//               return  {
+//                 listOfAddedProductsPast:[],
+//                 AddedProductsPresent : {...state.AddedProductsPresent, name:action.name, price:action.price},
+//                 listOfAddedProductsFuture:[]
+//               }
+//
+//             }else{
+//               console.log("state när present har ett värde ", state)
+//
+//               return  {
+//                 listOfAddedProductsPast:[...state.listOfAddedProductsPast, state.AddedProductsPresent],
+//                 AddedProductsPresent : {...state.AddedProductsPresent, name:action.name, price:action.price},
+//                 listOfAddedProductsFuture:[]
+//               }
+//             }
+//
+//
+//         break;
+//       case "UNDO_PRODUCT":
+//       console.log(action.type)
+//         console.log(state.listOfAddedProductsPast.length)
+//
+//           if(state.listOfAddedProducts.length ===0){
+//
+//             return state
+//
+//           }else{
+//             const lastPast = state.listOfAddedProductsPast[state.listOfAddedProductsPast.length - 1];
+//             return {
+//             		listOfAddedProductsPast: state.listOfAddedProductsPast.filter(x => x!== lastPast),
+//             		AddedProductsPresent: lastPast,
+//             		listOfAddedProductsFuture: [state.AddedProductsPresent, ...state.listOfAddedProductsFuture]
+// 	             };
+//
+//           }
+//
+//
+//       default:
+//         return state
+//     }
+//
+// }
 
 let rootReducer = combineReducers({
   // items: reducer,
   products: productReducer,
-  listOfAddedProducts: listOfAddedProductsReducer,
-  pastPresentFuture: pastPresentFutureReducer
+  pastPresentFuture:{
+    listOfAddedProducts: listOfAddedProductsReducer,
+
+  }
+
 
 });
 

@@ -36,7 +36,7 @@ class ProductsInStore extends Component {
     this.handleClick =(name, price)=>{
       self.props.dispatch(actionAddToCart(name + price));
       self.props.dispatch(addProduct(name, price, name + price));
-      self.props.dispatch(addProductToPresent(name, price, name + price));
+      // self.props.dispatch(addProductToPresent(name, price, name + price));
 
     }
 
@@ -48,7 +48,7 @@ class ProductsInStore extends Component {
   }
 
 
-  
+
 }
 
 let mapStateToProps = state => {

@@ -71,9 +71,10 @@ const initialState = {
     listOfAddedProductsPast:[],
     AddedProductsPresent:{},
     listOfAddedProductsFuture: [],
+    listOfAddedProducts:[]
+
   },
 
-  listOfAddedProducts:[]
 
 }
 

@@ -12,6 +12,7 @@ class Cart extends Component {
   render(){
 
 
+        console.log(this.props)
 
         //
         const listCart = this.props.listOfAddedProducts.map( (x,index) =>
@@ -49,11 +50,15 @@ class Cart extends Component {
 let mapStateToProps = state => {
   // console.log(state.products)
   // console.log(state.products.amount)
+  console.log(state)
+  
   return {
-    totalAdded: state.totalAdded,
-    listOfAddedProducts: state.listOfAddedProducts,
-  // amount: state.products.amount
-  }
+
+        listOfAddedProducts: state.pastPresentFuture.listOfAddedProducts,
+
+
+    }
+
 }
 
 
