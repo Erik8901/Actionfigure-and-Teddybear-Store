@@ -9,10 +9,10 @@ class Cart extends Component {
 
   componentDidUpdate(){
     // console.log(this)
-    console.log("PAST CART: ", this.props.addToCart.cartPastList);
-    console.log("PRESENT CART: ", this.props.addToCart.cartPresentList);
-    console.log("FUTURE CART: ", this.props.addToCart.cartFutureList);
-    console.log("HISTORY CART: ", this.props.addToCart.cartHistory);
+    // console.log("PAST CART: ", this.props.addToCart.cartPastList);
+    // console.log("PRESENT CART: ", this.props.addToCart.cartPresentList);
+    // console.log("FUTURE CART: ", this.props.addToCart.cartFutureList);
+    // console.log("HISTORY CART: ", this.props.addToCart.cartHistory);
   }
 
   render(){
@@ -50,7 +50,6 @@ class Cart extends Component {
           }
 
           cartContent = <ul className="boughtItems">{listCart}</ul>
-          console.log(this.props.addToCart.cartHistory.map( (x,index) => x))
           const listHistoryCart = this.props.addToCart.cartHistory.map( (x,index) =>
 
             (<li className="history"  key={x + index}>

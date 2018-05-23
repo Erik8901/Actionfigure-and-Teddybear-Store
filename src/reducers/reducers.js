@@ -81,8 +81,8 @@ let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[]
       // console.log(state.cartPastList.length)
       // console.log(state.cartPresentList.length)
       // console.log(state.cartFutureList.length)
-      console.log(action.type)
-      console.log(state.cartHistory)
+      // console.log(action.type)
+      // console.log(state.cartHistory)
 
       return {
               cartPastList:[...state.cartPastList, state.cartPresentList],

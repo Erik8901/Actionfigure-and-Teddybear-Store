@@ -17,9 +17,9 @@ class AddProductsToStore extends Component {
     }
     componentDidUpdate(){
       // console.log(this)
-      console.log("PAST PRODUCTS: ", this.props.products.past)
-      console.log("PRESENT PRODUCTS: ", this.props.products.present)
-      console.log("FUTURE PRODUCTS: ", this.props.products.future)
+      // console.log("PAST PRODUCTS: ", this.props.products.past)
+      // console.log("PRESENT PRODUCTS: ", this.props.products.present)
+      // console.log("FUTURE PRODUCTS: ", this.props.products.future)
     }
     render() {
         return (
