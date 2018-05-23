@@ -1,26 +1,24 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
-// import { showLogin } from './actions/actions.js';
-// import { actionCheckAdmin } from './actions/actions.js';
-import  AddProductsToStore  from './addProductsToStore.js';
+import AddProductsToStore  from './addProductsToStore.js';
+import { actionLoginAdmin } from "./actions/actions.js";
 
 class AdminLoginDiv extends Component {
     constructor(props) {
-		super(props);
-		this.state = {
-      inputUser: '',
-      inputPass: '',
-      checkAdminLogin: false};
+        super(props);
+        this.state = { inputUser: '',
+                       inputPass: '',
+                       loggedInAsAdmin: false
+                       };
+         console.log(this.state)
     }
 
-    checkAdminLogin = (e) => {
-        this.setState({checkAdminLogin: true})
-    }
 
     render() {
 
-        if(this.state.checkAdminLogin) {
+
+        if(this.props.admin.loggedInAsAdmin) {
 
             return(<div>
                 <AddProductsToStore/>
@@ -31,44 +29,42 @@ class AdminLoginDiv extends Component {
             return (
             <div className="loginDiv">
                 Adminname:<input type="text" placeholder="adminname"
-                      value={this.state.inputUser}
+                      value={this.props.inputUser}
                       onChange={e => this.setState({ inputUser: e.target.value})}/>
                 Adminpassword:<input type="password" placeholder="adminpassword"value={this.state.inputPass}
                       onChange={e => this.setState({ inputPass: e.target.value})}/>
                 <button onClick={this.checkAdminLogin} type="submit">Login!</button>
+
             </div>
 
     )
 
 
     }
-    checkAdminLogin = event => {
+    checkAdminLogin = (e) => {
+
+        let action = actionLoginAdmin({
+            adminName: this.state.inputUser,
+            adminPassword: this.state.inputPass,
+            loggedInAsAdmin: this.state.loggedInAsAdmin
+
+        });
+        this.props.dispatch(action)
 
 
-        // let action = actionCheckAdmin(this.state.input);
-        // this.props.dispatch(action)
 
-        if(this.state.inputUser === "admin" && this.state.inputPass === "admin") {
-
-        this.setState({checkAdminLogin: true})
-           // console.log("Admin Logged in")
-
-
-        } else {
-            alert("WRONG")
-         // console.log("Admin Failed to login")
-        }
 
     }
 
 }
+let mapStateToProps = state => {
 
-    let mapStateToProps = state => {
-	return {
-    products: state.products,
-    newProduct: state.newProduct
-	}
+    return {
+        admin: state.admin,
+        userInput: state.inputUser,
+        userPass: state.inputPass
+
+    };
+
 }
-
-
-export default connect (mapStateToProps) (AdminLoginDiv);
+export default connect(mapStateToProps) (AdminLoginDiv);

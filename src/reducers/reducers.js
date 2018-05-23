@@ -47,16 +47,14 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
   case "DECREASE_AMOUNT":
       return {
           past: [...state.past],
-        present: [...state.present.map( x => x.key === action.key ? {...x, amount:x.amount + action.oneUp}  : x)],
+          present: [...state.present.map( x => x.key === action.key ? {...x, amount:x.amount + action.oneUp}  : x)],
           future: [...state.future],
-
-
     }
 
     case "INCREASE_AMOUNT":
         return {
             past: [...state.past],
-          present: [...state.present.map( x => x.key === action.key ? {...x, amount:x.amount + action.oneLess}  : x)],
+            present: [...state.present.map( x => x.key === action.key ? {...x, amount:x.amount + action.oneLess}  : x)],
             future: [...state.future],
       }
     default:
@@ -72,45 +70,15 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
 let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[], cartHistory:[]}, action) =>{
 
     switch (action.type) {
-
-    //   case "BUY_PRODUCTS":
-    //   return {
-    // past: [...state.past, state.present],
-    // present: [...state.present, action.newProduct],
-    // future: []
-    // }
-
-
-
       case "UPDATE_CART":
-      // let ob= action.ob;
-      // console.log(state.cartPastList.length)
-      // console.log(state.cartPresentList.length)
-      // console.log(state.cartFutureList.length)
-      // console.log(action.type)
-      // console.log(state.cartHistory)
-
-      return {
+            return {
               cartPastList:[...state.cartPastList, state.cartPresentList],
               cartPresentList:[...state.cartPresentList, action.ob],
               cartFutureList:[],
               cartHistory: [...state.cartHistory, action.type]
           }
         break;
-
-        //   case "UNDO_PRODUCT":
-        //   let lastPast = state.past[state.past.length - 1];
-        //   return {
-        //   past: state.past.filter( x => x !== lastPast ),
-        //   present: lastPast,
-        //   future: [state.present, ...state.future]
-        // };
-
       case "UNDO_CART":
-      // console.log(state)
-      // console.log(state.cartPastList.length);
-      // console.log(state.cartPresentList.length);
-      // console.log(state.cartFutureList.length);
         const lastPast = state.cartPastList[state.cartPastList.length - 1];
         return {
           cartPastList:state.cartPastList.filter(x => x !== lastPast),
@@ -119,25 +87,8 @@ let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[]
           cartHistory: [...state.cartHistory, action.type]
         }
         break;
-
-        // case "REDO_PRODUCT":
-        //   let firstFuture = state.future[0];
-        //
-        //   return {
-        //     past: [...state.past, state.present],
-        //     present: firstFuture,
-        //     future: state.future.filter(x => x !== firstFuture)
-        //   };
-
-
         case "REDO_CART":
-          console.log(state);
-          // console.log(state.cartPastList.length)
-          // console.log(state.cartPresentList.length)
-          // console.log(state.cartFutureList.length)
           let firstFuture = state.cartFutureList[0];
-          // console.log(firstFuture);
-
           return {
             cartPastList: [...state.cartPastList, state.cartPresentList],
             cartPresentList: firstFuture,
@@ -146,21 +97,31 @@ let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[]
           };
       default:
         return state
-
+    }
+}
+const adminLoginReducer = (state = {loggedInAsAdmin: false, adminName: 'admin', adminPassword: 'admin'}, action) => {
+    let bool = true;
+    switch(action.type) {
+        case "ADMIN_LOGIN":
+            if(action.adminName === state.adminName && action.adminPassword === state.adminPassword) {
+                return {
+                    loggedInAsAdmin: true,
+                    adminName: state.adminName,
+                    adminPassword: state.adminName
+                }
+            } else {
+                console.log("Fail")
+            }
+        default:
+            return state
     }
 }
 
 
-
 let rootReducer = combineReducers({
-  // items: reducer,
   products: productReducer,
-
   addToCart: cartReducer,
-  // newProduct: addProductsReducer,
-  //    value: counterReducer,
-      // input: adminReducer,
-  //    numberOfClicks: clicksReducer
+  admin: adminLoginReducer
 });
 
 

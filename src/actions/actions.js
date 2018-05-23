@@ -67,7 +67,7 @@ let actionRedo = () => {
 }
 
 let decreaseAmount = (productKey, amount) => {
-  console.log(amount)
+  // console.log(amount)
   return {
     type: "DECREASE_AMOUNT",
     key: productKey,
@@ -76,12 +76,22 @@ let decreaseAmount = (productKey, amount) => {
 }
 
 let increaseAmount  = (productKey, amount) => {
-  console.log(amount)
+  // console.log(amount)
   return {
     type: "INCREASE_AMOUNT",
     key: productKey,
     oneLess: -1
   }
+}
+
+let actionLoginAdmin = (admin) => {
+   // console.log(admin)
+    return {
+        type: "ADMIN_LOGIN",
+        adminName: admin.adminName,
+        adminPassword: admin.adminPassword,
+        loggedInAsAdmin: admin.loggedInAsAdmin
+    }
 }
 
 export {
@@ -96,5 +106,6 @@ export {
   regret,
   redo,
   decreaseAmount,
-  increaseAmount
+  increaseAmount,
+  actionLoginAdmin
   };
