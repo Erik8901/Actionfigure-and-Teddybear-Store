@@ -12,6 +12,7 @@ class Cart extends Component {
     console.log("PAST CART: ", this.props.addToCart.cartPastList);
     console.log("PRESENT CART: ", this.props.addToCart.cartPresentList);
     console.log("FUTURE CART: ", this.props.addToCart.cartFutureList);
+    console.log("HISTORY CART: ", this.props.addToCart.cartHistory);
   }
 
   render(){
@@ -20,13 +21,13 @@ class Cart extends Component {
         //
 
         let cartContent;
+        let cartHistoryContent;
         // console.log(this.props.addToCart.cartPresentList.length)
         // console.log("ADDED TO CART: ", this.props.addToCart.cartPresentList.map( (x,index) => x))
 
         const listCart = this.props.addToCart.cartPresentList.map( (x,index) =>
 
           (<li className="addedProd" key={x.name + x.price + index}>
-            <span>X</span>
           <span>{x.name}</span><br/>
           <span>Price: {x.price} kr</span><br/>
 
@@ -48,7 +49,19 @@ class Cart extends Component {
             }
           }
 
-          cartContent = <ul>{listCart}</ul>
+          cartContent = <ul className="boughtItems">{listCart}</ul>
+          console.log(this.props.addToCart.cartHistory.map( (x,index) => x))
+          const listHistoryCart = this.props.addToCart.cartHistory.map( (x,index) =>
+
+            (<li className="history"  key={x + index}>
+
+            <span>{x}</span><br/>
+
+
+            </li>)
+
+          )
+          cartHistoryContent = <nav><ul>{listHistoryCart}</ul></nav>
         return (
       <div id="cart">
         <div>
@@ -58,10 +71,15 @@ class Cart extends Component {
         <h5>Your cart</h5>
         <span>Total products {this.props.addToCart.cartPresentList.length}</span>
 
-        {listCart}
+        {cartContent}
 
         <span>Total cost {totalVal}</span>
+          <p>History</p>
+          {cartHistoryContent}
+
+
       </div>
+
     )
   }
 }

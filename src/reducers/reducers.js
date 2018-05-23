@@ -63,7 +63,7 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
   }
 }
 
-let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[]}, action) =>{
+let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[], cartHistory:[]}, action) =>{
 
     switch (action.type) {
 
@@ -81,12 +81,14 @@ let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[]
       // console.log(state.cartPastList.length)
       // console.log(state.cartPresentList.length)
       // console.log(state.cartFutureList.length)
-      // console.log(action.ob)
+      console.log(action.type)
+      console.log(state.cartHistory)
 
       return {
               cartPastList:[...state.cartPastList, state.cartPresentList],
               cartPresentList:[...state.cartPresentList, action.ob],
-              cartFutureList:[]
+              cartFutureList:[],
+              cartHistory: [...state.cartHistory, action.type]
           }
         break;
 
@@ -108,6 +110,7 @@ let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[]
           cartPastList:state.cartPastList.filter(x => x !== lastPast),
           cartPresentList:lastPast,
           cartFutureList:[state.cartPresentList, ...state.cartFutureList],
+          cartHistory: [...state.cartHistory, action.type]
         }
         break;
 
@@ -132,7 +135,8 @@ let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[]
           return {
             cartPastList: [...state.cartPastList, state.cartPresentList],
             cartPresentList: firstFuture,
-            cartFutureList: state.cartFutureList.filter(x => x !== firstFuture)
+            cartFutureList: state.cartFutureList.filter(x => x !== firstFuture),
+            cartHistory: [...state.cartHistory, action.type]
           };
       default:
         return state
