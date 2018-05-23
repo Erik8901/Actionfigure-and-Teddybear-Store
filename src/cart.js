@@ -4,6 +4,8 @@ import {connect} from 'react-redux';
 import {undoProduct} from "./actions/actions.js"
 import {regret} from "./actions/actions.js"
 import {redo} from "./actions/actions.js"
+import {decreaseAmount} from "./actions/actions.js"
+import {increaseAmount} from "./actions/actions.js"
 
 class Cart extends Component {
 
@@ -35,11 +37,16 @@ class Cart extends Component {
           </li>)
         )
 
-
+        let amount;
+        let name;
+        let price;
         let totalVal =0;
         let totalCost = this.props.addToCart.cartPresentList.map(x => {
 
             totalVal += Number(x.price)
+            amount = x.amount;
+            name = x.name;
+            price = x.price
         })
 
             this.checkLength = (length) => {
@@ -50,23 +57,28 @@ class Cart extends Component {
             }
           }
 
+          this.regret = (name, price, amount) => {
+            this.props.dispatch(decreaseAmount(name + price, amount))
+            this.props.dispatch(regret(amount))
+          }
+
+          this.undo = (name, price, amount) => {
+            this.props.dispatch(increaseAmount(name + price, amount))
+            this.props.dispatch(redo())
+          }
+
           cartContent = <ul className="boughtItems">{listCart}</ul>
           const listHistoryCart = this.props.addToCart.cartHistory.map( (x,index) =>
-
             (<li className="history"  key={x + index}>
-
             <span>{x}</span><br/>
-
-
             </li>)
-
           )
           cartHistoryContent = <nav><ul>{listHistoryCart}</ul></nav>
         return (
       <div id="cart">
         <div>
-          <button onClick={e => this.props.dispatch(regret())} disabled={!this.props.actionUndoCart}>Undo</button>
-          <button onClick={e => this.props.dispatch(redo())} disabled={!this.props.actionRedoCart}>Redo</button>
+          <button onClick={e => this.regret(name,price, amount)} disabled={!this.props.actionUndoCart}>Undo</button>
+          <button onClick={e => this.undo(name,price, amount)} disabled={!this.props.actionRedoCart}>Redo</button>
         </div>
         <h5>Your cart</h5>
         <span>Total products {this.props.addToCart.cartPresentList.length}</span>
@@ -92,7 +104,7 @@ let mapStateToProps = state => {
   // console.log(state);
     return {
       addToCart: state.addToCart,
-      products: state.products,
+      // products: state.products,
       actionUndoCart: state.addToCart.cartPastList.length > 0,
       actionRedoCart: state.addToCart.cartFutureList.length > 0
     }
