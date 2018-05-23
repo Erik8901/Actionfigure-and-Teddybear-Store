@@ -16,14 +16,14 @@ class ProductsInStore extends Component {
       <img className="productImg" src={require("./img/teddybear.png")} alt=" "/>
       <span>Price: {x.price}</span><br/>
       <span>Amount in store: {x.amount}</span>
-      <button className="buyItem" onClick={e => this.handleClick(x.name, x.price)} disabled={x.amount === 0}>Add</button>
+      <button className="buyItem" onClick={e => this.handleClick(x.name, x.price, x.amount)} disabled={x.amount === 0}>Add</button>
 
     </li>));
 
-    this.handleClick = (name, price) =>{
+    this.handleClick = (name, price, amount) =>{
 
       this.props.dispatch(actionAddToCart(name + price))
-      this.props.dispatch(updateCart({name:name, price:price}))
+      this.props.dispatch(updateCart({name:name, price:price, amount: amount}))
 
     }
 
