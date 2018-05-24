@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import './App.css';
 import './ProductsInStore.css'
-import { actionAddToStore, actionRedo, actionUndo} from './actions/actions.js';
+import { actionAddToStore, actionRedo, actionUndo, actionChangeProduct, actionRemoveProduct} from './actions/actions.js';
 // import { ProductsInStore } from './ProductsInStore.js'
 
 class AddProductsToStore extends Component {
@@ -22,8 +22,30 @@ class AddProductsToStore extends Component {
       // console.log("FUTURE PRODUCTS: ", this.props.products.future)
     }
     render() {
+
+      let productChangeContent;
+      const listOfProducts = this.props.products.present.map(x =>
+        (<li className="items" key={x.name + x.price}>
+        <h3>{x.name}</h3>
+        <span>Price: {x.price}</span><br/>
+        <span>Amount in store: {x.amount}</span>
+        <button className="buyItem" onClick={e => this.handleClick(x.name, x.price, x.amount)} disabled={x.amount === 0}>Change</button>
+        <button className="buyItem" onClick={e => this.handleClick(x.name, x.price, x.amount)} disabled={x.amount === 0}>Remove</button>
+
+      </li>));
+
+      this.handleClick = (name, price, amount) =>{
+
+        this.props.dispatch(actionChangeProduct({name:name, price:price, amount: amount, key: name + price}))
+        this.props.dispatch(actionRemoveProduct({name:name, price:price, amount: amount, key: name + price}))
+
+      }
+
+      productChangeContent = <ul className="container">{listOfProducts}</ul>
+
+
         return (
-            <div className="AddProductsDiv">
+            <div className="changeProductDiv">
                 <h2>Add a New Product to the store</h2>
                 Name:<input type="text" placeholder="productName"
                 onChange={e => this.setState({ inputName: e.target.value})}/>
@@ -34,6 +56,8 @@ class AddProductsToStore extends Component {
                 <br/><button onClick={this.addToStore}>Add to Store</button>
                 <button onClick={e => this.props.dispatch(actionUndo())} disabled={!this.props.actionUndo}>Undo</button>
                 <button onClick={e => this.props.dispatch(actionRedo())} disabled={!this.props.actionRedo}>Redo</button>
+
+                <div>{productChangeContent}</div>
             </div>
           )
         }

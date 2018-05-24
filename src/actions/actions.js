@@ -84,6 +84,24 @@ let increaseAmount  = (productKey, amount) => {
   }
 }
 
+let actionChangeProduct = (o) => {
+  // console.log("actionChangeProduct", o);
+  // console.log("CHANGE_PRODUCT")
+  return {
+      type: "CHANGE_PRODUCT",
+      changeProduct: o
+  }
+}
+
+let actionRemoveProduct = (o) => {
+  // console.log("actionRemoveProduct", o);
+  // console.log("REMOVE_PRODUCT")
+  return {
+      type: "REMOVE_PRODUCT",
+      removeProduct: o
+  }
+}
+
 let actionLoginAdmin = (admin) => {
    // console.log(admin)
     return {
@@ -107,5 +125,7 @@ export {
   redo,
   decreaseAmount,
   increaseAmount,
-  actionLoginAdmin
+  actionLoginAdmin,
+  actionChangeProduct,
+  actionRemoveProduct
   };
