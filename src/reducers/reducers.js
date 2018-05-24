@@ -53,22 +53,19 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
         future: [...state.future]
       }
 
-      // name: this.state.changeProductName,
-      // price: this.state.changeProductPrice,
-      // amount: this.state.changeProductAmount,
-      // key: this.state.changeProductName + this.state.changeProductPrice,
-
       case "CHANGE_PRODUCT":
-      console.log(action.changeProduct.oldKey)
-      // console.log([...state.present.map( x => x.key === action.changeProduct.oldKey ? {...x, name: action.changeProduct.name, price: action.changeProduct.price, amount: action.changeProduct.amount, key: action.changeProduct.key}  : x)])
-      console.log(action.changeProduct)
           return {
             past: [...state.past],
-            present: [...state.present.map( x => x.key === action.changeProduct.oldKey ? {...x, name: action.changeProduct.name, price: action.changeProduct.price, amount: action.changeProduct.amount, key: action.changeProduct.key}  : x)],
-            // present: [...state.present],
+            present: [...state.present.map( x => x.key === action.changeProduct.oldKey ? {...x, name: action.changeProduct.name, price: action.changeProduct.price, amount: action.changeProduct.amount, key: action.changeProduct.key, bool: action.changeProduct.bool}  : x)],
             future: [...state.future]
           }
 
+      case "CHANGE_PRODUCT_INPUT":
+          return {
+            past: [...state.past],
+            present: [...state.present.map( x => x.key === action.changeProductInput.key ? {...x, bool:true}  : {...x, bool:false})],
+            future: [...state.future]
+                }
   case "DECREASE_AMOUNT":
       return {
           past: [...state.past],

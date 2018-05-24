@@ -93,6 +93,13 @@ let actionChangeProduct = (o) => {
   }
 }
 
+let actionChangeProductInput = (o) => {
+  return {
+      type: "CHANGE_PRODUCT_INPUT",
+      changeProductInput: o
+  }
+}
+
 let actionRemoveProduct = (o) => {
   // console.log("actionRemoveProduct", o);
   console.log("REMOVE_PRODUCT")
@@ -127,5 +134,6 @@ export {
   increaseAmount,
   actionLoginAdmin,
   actionChangeProduct,
-  actionRemoveProduct
+  actionRemoveProduct,
+  actionChangeProductInput
   };
