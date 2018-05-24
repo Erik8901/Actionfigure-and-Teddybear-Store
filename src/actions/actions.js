@@ -85,8 +85,8 @@ let increaseAmount  = (productKey, amount) => {
 }
 
 let actionChangeProduct = (o) => {
-  // console.log("actionChangeProduct", o);
-  // console.log("CHANGE_PRODUCT")
+  console.log(o);
+  console.log("CHANGE_PRODUCT")
   return {
       type: "CHANGE_PRODUCT",
       changeProduct: o
@@ -95,7 +95,7 @@ let actionChangeProduct = (o) => {
 
 let actionRemoveProduct = (o) => {
   // console.log("actionRemoveProduct", o);
-  // console.log("REMOVE_PRODUCT")
+  console.log("REMOVE_PRODUCT")
   return {
       type: "REMOVE_PRODUCT",
       removeProduct: o

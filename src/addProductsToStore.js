@@ -29,17 +29,11 @@ class AddProductsToStore extends Component {
         <h3>{x.name}</h3>
         <span>Price: {x.price}</span><br/>
         <span>Amount in store: {x.amount}</span>
-        <button className="buyItem" onClick={e => this.handleClick(x.name, x.price, x.amount)} disabled={x.amount === 0}>Change</button>
-        <button className="buyItem" onClick={e => this.handleClick(x.name, x.price, x.amount)} disabled={x.amount === 0}>Remove</button>
+        <button className="buyItem" onClick={e => this.props.dispatch(actionChangeProduct({name:x.name, price:x.price, amount: x.amount, key: x.name + x.price}))} disabled={x.amount === 0}>Change</button>
+        <button className="buyItem" onClick={e => this.props.dispatch(actionRemoveProduct({name:x.name, price:x.price, amount: x.amount, key: x.name + x.price}))} disabled={x.amount === 0}>Remove</button>
 
       </li>));
 
-      this.handleClick = (name, price, amount) =>{
-
-        this.props.dispatch(actionChangeProduct({name:name, price:price, amount: amount, key: name + price}))
-        this.props.dispatch(actionRemoveProduct({name:name, price:price, amount: amount, key: name + price}))
-
-      }
 
       productChangeContent = <ul className="container">{listOfProducts}</ul>
 

@@ -53,6 +53,14 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
         future: [...state.future]
       }
 
+      case "CHANGE_PRODUCT":
+      console.log(state)
+      console.log(action.changeProduct)
+          return {
+            past: [...state.past],
+            present: [...state.present],
+            future: [...state.future]
+          }
 
   case "DECREASE_AMOUNT":
       return {
