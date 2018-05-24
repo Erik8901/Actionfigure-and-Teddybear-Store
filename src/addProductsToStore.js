@@ -23,18 +23,33 @@ class AddProductsToStore extends Component {
     }
     render() {
 
+      console.log(this.props.products.present)
       let productChangeContent;
       const listOfProducts = this.props.products.present.map(x =>
-        (<li className="items" key={x.name + x.price}>
-        <h3>{x.name}</h3>
-        <span>Price: {x.price}</span><br/>
-        <span>Amount in store: {x.amount}</span>
-        <button className="buyItem" onClick={e => this.props.dispatch(actionChangeProduct({name:x.name, price:x.price, amount: x.amount, key: x.name + x.price}))} disabled={x.amount === 0}>Change</button>
-        <button className="buyItem" onClick={e => this.props.dispatch(actionRemoveProduct({name:x.name, price:x.price, amount: x.amount, key: x.name + x.price}))} disabled={x.amount === 0}>Remove</button>
+        (
+
+        <li className="items" key={x.name + x.price}>
+        {(x.bool)
+
+          ? (
+            <input/>
+            <input/>
+          )
+          :
+          (
+            <React.Fragment>
+            <h3>{x.name}</h3>
+            <span>Price: {x.price}</span><br/>
+            <span>Amount in store: {x.amount}</span>
+            <button className="buyItem" onClick={e => this.props.dispatch(actionChangeProduct({name:x.name, price:x.price, amount: x.amount, key: x.name + x.price, bool: true}))} disabled={x.amount === 0}>Change</button>
+            <button className="buyItem" onClick={e => this.props.dispatch(actionRemoveProduct({name:x.name, price:x.price, amount: x.amount, key: x.name + x.price}))} disabled={x.amount === 0}>Remove</button>
+            </React.Fragment>          )
+        }
+
 
       </li>));
 
-
+// e => this.props.dispatch(actionChangeProduct({name:x.name, price:x.price, amount: x.amount, key: x.name + x.price, bool: true}))
       productChangeContent = <ul className="container">{listOfProducts}</ul>
 
 

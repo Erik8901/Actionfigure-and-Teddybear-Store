@@ -55,10 +55,10 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
 
       case "CHANGE_PRODUCT":
       console.log(state)
-      console.log(action.changeProduct)
+      console.log(action.changeProduct.key)
           return {
             past: [...state.past],
-            present: [...state.present],
+            present: [...state.present.map( x => x.key === action.changeProduct.key ? {...x, bool:true}  : {...x, bool:false})],
             future: [...state.future]
           }
 
