@@ -34,7 +34,12 @@ class AdminLoginDiv extends Component {
 
   }
   checkAdminLogin = (e) => {
-    let action = actionLoginAdmin({adminName: this.state.inputUser, adminPassword: this.state.inputPass, loggedInAsAdmin: this.state.loggedInAsAdmin});
+    let action = actionLoginAdmin({
+      adminName: this.state.inputUser,
+      adminPassword: this.state.inputPass,
+      loggedInAsAdmin: this.state.loggedInAsAdmin,
+
+    });
     this.props.dispatch(action)
 
   }

@@ -1,21 +1,22 @@
 body {
-    background-color: lightblue;
+  background-color: lightblue;
 }
 
+.showAdminLogin {
+  background-color: lightgreen;
+}
 
-
-.admins {
-    background-color: lightgreen;
+.hideAdminLogin {
+  display: none;
 }
 
 .loginDiv {
-    background-color: yellow;
-    height: 200px;
-    width: 200px;
+  background-color: yellow;
+  height: 200px;
+  width: 200px;
 }
 
 .AddProductsDiv {
-    background-color: yellow;
-    height: 200px;
+  background-color: yellow;
+  height: 200px;
 }
-
