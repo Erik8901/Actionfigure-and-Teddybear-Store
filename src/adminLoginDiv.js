@@ -4,6 +4,7 @@ import './App.css';
 import AddProductsToStore from './addProductsToStore.js';
 import {actionLoginAdmin} from "./actions/actions.js";
 
+
 class AdminLoginDiv extends Component {
   constructor(props) {
     super(props);
@@ -12,14 +13,14 @@ class AdminLoginDiv extends Component {
       inputPass: '',
       loggedInAsAdmin: false,
     };
-    // console.log(this.state)
+    // console.log(this.state);
   }
 
   render() {
 
-    if (this.props.admin.loggedInAsAdmin) {
-
-      return (<div>
+    if (this.state.loggedInAsAdmin) {
+      return (<div className={this.props.hideOrShow}>
+        <button  onClick={this.checkAdminLogin} type="button">Logout</button>
         <AddProductsToStore/>
       </div>)
     }
@@ -34,6 +35,15 @@ class AdminLoginDiv extends Component {
 
   }
   checkAdminLogin = (e) => {
+    if(!this.state.loggedInAsAdmin){
+      this.setState({
+        loggedInAsAdmin: true,
+      })
+    }else{
+      this.setState({
+        loggedInAsAdmin: false,
+      })
+    }
     let action = actionLoginAdmin({
       adminName: this.state.inputUser,
       adminPassword: this.state.inputPass,

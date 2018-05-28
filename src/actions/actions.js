@@ -110,7 +110,7 @@ let actionRemoveProduct = (o) => {
 }
 
 let actionLoginAdmin = (admin) => {
-   // console.log(admin)
+   console.log(admin)
     return {
         type: "ADMIN_LOGIN",
         adminName: admin.adminName,

@@ -14,9 +14,9 @@ class ProductsInStore extends Component {
 
       <h3>{x.name}</h3>
       <img className="productImg" src={require("./img/teddybear.png")} alt=" "/>
-      <span>Price: {x.price}</span><br/>
+      <span>Price: {x.price}kr</span><br/>
       <span>Amount in store: {x.amount}</span>
-      <button className="buyItem" onClick={e => this.handleClick(x.name, x.price, x.amount)} disabled={x.amount === 0}>Add</button>
+      <button className="buyItem" onClick={e => this.handleClick(x.name, x.price, x.amount)} disabled={x.amount === 0}>Add to cart</button>
 
     </li>));
 

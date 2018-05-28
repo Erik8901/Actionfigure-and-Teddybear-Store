@@ -132,9 +132,10 @@ const adminLoginReducer = (state = {loggedInAsAdmin: false, adminName: 'admin', 
                     adminPassword: state.adminName
                 }
             } else {
-                console.log("Fail")
+              return state;
+                // console.log("Fail")
             }
-            break;
+            // break;
         default:
             return state
     }
