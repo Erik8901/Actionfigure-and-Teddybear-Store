@@ -18,7 +18,7 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
   }
 
     case "ADD_TO_STORE":
-    console.log(state)
+    // console.log(state)
         return {
           past: [...state.past, state.present],
           present: [...state.present, action.newProduct],
@@ -27,7 +27,7 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
 
 
     case "UNDO_PRODUCT":
-    console.log(state)
+    // console.log(state)
     let lastPast = state.past[state.past.length - 1];
     return {
     past: state.past.filter( x => x !== lastPast ),
@@ -36,7 +36,7 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
   };
 
     case "REDO_PRODUCT":
-    console.log(state)
+    // console.log(state)
     let firstFuture = state.future[0];
     return {
     past: [...state.past, state.present],
@@ -45,8 +45,8 @@ const productReducer = (state = {past: [], present: [], future: []}, action) => 
   };
 
   case "REMOVE_PRODUCT":
-  console.log(state)
-  console.log(action.removeProduct)
+  // console.log(state)
+  // console.log(action.removeProduct)
       return {
         past: [...state.past],
         present: [...state.present.filter( x => x.key !== action.removeProduct.key)],
@@ -99,7 +99,7 @@ let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[]
               cartFutureList:[],
               cartHistory: [...state.cartHistory, action.type]
           }
-        break;
+        // break;
       case "UNDO_CART":
         const lastPast = state.cartPastList[state.cartPastList.length - 1];
         return {
@@ -108,7 +108,7 @@ let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[]
           cartFutureList:[state.cartPresentList, ...state.cartFutureList],
           cartHistory: [...state.cartHistory, action.type]
         }
-        break;
+        // break;
         case "REDO_CART":
           let firstFuture = state.cartFutureList[0];
           return {
@@ -122,7 +122,7 @@ let cartReducer = (state={cartPastList:[], cartPresentList:[], cartFutureList:[]
     }
 }
 const adminLoginReducer = (state = {loggedInAsAdmin: false, adminName: 'admin', adminPassword: 'admin'}, action) => {
-    let bool = true;
+    // let bool = true;
     switch(action.type) {
         case "ADMIN_LOGIN":
             if(action.adminName === state.adminName && action.adminPassword === state.adminPassword) {
@@ -134,6 +134,7 @@ const adminLoginReducer = (state = {loggedInAsAdmin: false, adminName: 'admin', 
             } else {
                 console.log("Fail")
             }
+            break;
         default:
             return state
     }

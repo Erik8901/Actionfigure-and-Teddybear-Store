@@ -27,9 +27,9 @@ class AddProductsToStore extends Component {
     }
     render() {
 
-      console.log(this.props.products.present)
+      // console.log(this.props.products.present)
       let productChangeContent;
-      let oldKey;
+      // let oldKey;
       const listOfProducts = this.props.products.present.map(x =>
 
         (
@@ -42,7 +42,7 @@ class AddProductsToStore extends Component {
             <input type="text" placeholder={x.name} onChange={e => this.setState({ changeProductName: e.target.value, oldKey: x.name + x.price})}/>
             <input type="text" placeholder={x.price} onChange={e => this.setState({ changeProductPrice: e.target.value})}/>
             <input type="text" placeholder={x.amount} onChange={e => this.setState({ changeProductAmount: e.target.value})}/>
-            <button className="buyItem" onClick={this.changeProduct}>Go change</button>
+            <button className="buyItem" onClick={this.changeProduct}>Update toy</button>
             </React.Fragment>
           )
           :
@@ -66,12 +66,12 @@ class AddProductsToStore extends Component {
 
         return (
             <div className="changeProductDiv">
-                <h2>Add a New Product to the store</h2>
-                Name:<input type="text" placeholder="productName"
+                <h2>Add or change products</h2>
+                Name:<input type="text" placeholder="Product name"
                 onChange={e => this.setState({ inputName: e.target.value})}/>
-                Price:<input type="text" placeholder="productPrice"
+                Price:<input type="text" placeholder="Price"
                 onChange={e => this.setState({ inputPrice: e.target.value})}/>
-                Amount:<input type="text" placeholder="productAmount"
+                Amount:<input type="text" placeholder="Amount in store"
                 onChange={e => this.setState({ inputAmount: e.target.value})}/>
                 <br/><button onClick={this.addToStore}>Add to Store</button>
                 <button onClick={e => this.props.dispatch(actionUndo())} disabled={!this.props.actionUndo}>Undo</button>

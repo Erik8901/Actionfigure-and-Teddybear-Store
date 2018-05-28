@@ -1,7 +1,7 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {undoProduct} from "./actions/actions.js"
+// import {undoProduct} from "./actions/actions.js"
 import {regret} from "./actions/actions.js"
 import {redo} from "./actions/actions.js"
 import {decreaseAmount} from "./actions/actions.js"
@@ -18,11 +18,6 @@ class Cart extends Component {
   }
 
   render(){
-
-
-
-        //
-
         let cartContent;
         let cartHistoryContent;
         // console.log(this.props.addToCart.cartPresentList.length)
@@ -41,7 +36,7 @@ class Cart extends Component {
         let name;
         let price;
         let totalVal =0;
-        let totalCost = this.props.addToCart.cartPresentList.map(x => {
+        this.props.addToCart.cartPresentList.forEach(x => {
 
             totalVal += Number(x.price)
             amount = x.amount;

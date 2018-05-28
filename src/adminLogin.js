@@ -22,9 +22,8 @@ class AdminLogin extends Component {
 
     return (
         <div className="admins">
-            <h3>AdminLogin</h3>
-            <button onClick={this.showLogin.bind(this)}>Login Admin</button>
-
+            <h3>Admin Login</h3>
+            <button onClick={this.showLogin.bind(this)}>Login as admin</button>
             <div>
                {this.state.show && <AdminLoginDiv/>}
             </div>
