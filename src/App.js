@@ -15,8 +15,8 @@ class App extends Component {
     return (
       <div>
 
-        <ProductsInStore />
         <AdminLogin  />
+        <ProductsInStore />
 
 
 

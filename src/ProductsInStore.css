@@ -23,21 +23,119 @@ li>h3 {
 .productImg {
   width: 128px;
   position: relative;
-  margin-left: 65px;
+  margin-left: 120px;
   top: 50px;
 }
 
 .items>span {
   position: relative;
-  top: 80px;
+  display: block;
+  top: 100px;
+  /* text-align: left; */
+  /* float: left; */
+  /* left: 20px; */
+  /* bottom: 100px; */
 }
 
 .buyItem {
   position: relative;
-  margin-left: 95px;
+  /* margin-left: 95px; */
+  /* margin: 0 auto; */
+  /* right: -65px; */
+  margin-left: 30%;
+  width: 150px;
   bottom: 0;
-  right: -70px;
-  top: 60px;
+  top: 10px;
+  padding: 0.35em 1em;
+  border: 0.1em solid #FFFFFF;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: #000;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.buyItem:hover {
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+.changeRemoveBtn {
+  position: relative;
+  /* margin-top: 10px; */
+  /* margin-left: 20%; */
+  /* margin: 5 auto; */
+  /* width: 150px; */
+  margin: 5px;
+  margin-left: 25px;
+  bottom: 0;
+  top: 30px;
+  padding: 0.35em 1em;
+  border: 0.1em solid #FFFFFF;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: #000;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.changeToyBtn {
+  position: relative;
+  /* margin-top: 5px; */
+  /* margin-left: 20%; */
+  /* margin: 5 auto; */
+  /* width: 150px; */
+  /* margin: 5px; */
+  margin-left: 65px;
+  bottom: 0;
+  top: 30px;
+  padding: 0.35em 1em;
+  border: 0.1em solid #FFFFFF;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: #000;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.changeRemoveBtn:hover {
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+.changeInputItems {
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.5);
+  background: tomato;
+  padding: 15px;
+  margin-top: 45px;
+  height: 180px;
+  width: 225px;
+  color: white;
+}
+
+.changeInputItems>span {
+  position: relative;
+  display: block;
+  top: 50px;
+  margin-bottom: -10px;
+}
+
+/* .changeInputDiv {
+  border: 1px solid black;
+} */
+
+.changeInputDiv span {
+  display: block;
+}
+
+.changeInputDiv input {
+  width: 220px;
 }
 
 .items {
@@ -45,8 +143,8 @@ li>h3 {
   background: tomato;
   padding: 15px;
   margin-top: 45px;
-  height: 260px;
-  width: 200px;
+  height: 300px;
+  width: 350px;
   color: white;
 }
 
@@ -103,8 +201,64 @@ ul .items {
   height: 100vh;
   background: rgba(255, 255, 255, 1);
   box-shadow: 0px 0px 20px black;
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   text-align: center;
 }
+
+div>.changeProductDiv {
+  margin-top: 50px;
+}
+
+.changeProductDiv {
+  text-align: center;
+  /* border: 1px solid black; */
+  /* display: inline-block; */
+  /* background-color: rgba(255, 0, 0, 0.5); */
+  /* margin-bottom: 35px;
+  margin-top: 50px; */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 900px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.7);
+  box-shadow: 0px 0px 20px black;
+}
+
+.addToStore span {
+  /* border: 1px solid white; */
+  /* text-align: left; */
+  display: inline-block;
+  padding-right: 20px;
+  width: 40px;
+  font-weight: 700;
+}
+
+.addToStore input {
+  width: 200px;
+  margin-left: 10px;
+}
+
+.changeProductDiv button {
+  /* display: inline-block; */
+  /* font-family: 'Roboto', sans-serif; */
+  /* margin: 0 0.3em 0.3em 0; */
+  margin-left: 20px;
+  padding: 0.35em 1.2em;
+  border: 0.1em solid #FFFFFF;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 300;
+  color: #000;
+  text-align: center;
+  transition: all 0.2s;
+}
+
+.changeProductDiv button:hover {
+  color: #000000;
+  background-color: #FFFFFF;
+}
+
+.addOrChangeHeader {}
