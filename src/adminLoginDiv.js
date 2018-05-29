@@ -19,16 +19,20 @@ class AdminLoginDiv extends Component {
   render() {
 
     if (this.state.loggedInAsAdmin) {
-      return (<div className={this.props.hideOrShow}>
-        <button  onClick={this.checkAdminLogin} type="button">Logout</button>
-        <AddProductsToStore/>
-      </div>)
+      return (
+        <React.Fragment>
+        <div className="showAdminLogin">
+        <h3 className="adminHeader">Logged in as admin</h3>
+        <button className="logoutBtnAdmin" onClick={this.checkAdminLogin} type="button">Logout</button>
+      </div>
+      <AddProductsToStore/>
+    </React.Fragment>)
     }
 
     return (<div className="loginDiv">
       <form>
-        Username:<input type="text" placeholder="Username" value={this.props.inputUser} onChange={e => this.setState({inputUser: e.target.value})}/>
-        Password:<input type="password" autoComplete="" placeholder="Password" value={this.state.inputPass} onChange={e => this.setState({inputPass: e.target.value})}/>
+        <strong>Username:</strong><input type="text" placeholder="Username" value={this.props.inputUser} onChange={e => this.setState({inputUser: e.target.value})}/>
+        <strong>Password:</strong><input type="password" placeholder="Password" value={this.state.inputPass} onChange={e => this.setState({inputPass: e.target.value})}/>
         <button onClick={this.checkAdminLogin} type="button">Enter</button>
       </form>
     </div>)

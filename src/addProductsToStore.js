@@ -93,9 +93,9 @@ class AddProductsToStore extends Component {
       <div className="changeProductDiv">
         <h2 className="addOrChangeHeader">Add or change products</h2>
         <div className="addToStore">
-          Name:<input type="text" placeholder="Product name" onChange={this.handleChange} ref="refName"/>
-          Price:<input type="text" placeholder="Price" onChange={this.handleChange1} ref="refPrice"/>
-          Amount:<input type="text" placeholder="Amount in store" onChange={this.handleChange2} ref="refAmount"/>
+          <span>Name:</span><input type="text" placeholder="Product name" onChange={this.handleChange} ref="refName"/>
+          <span>Price:</span><input type="text" placeholder="Price" onChange={this.handleChange1} ref="refPrice"/>
+          <span>Amount:</span><input type="text" placeholder="Amount in store" onChange={this.handleChange2} ref="refAmount"/>
         </div>
         <br/>
         <button disabled={!this.state.inputName,

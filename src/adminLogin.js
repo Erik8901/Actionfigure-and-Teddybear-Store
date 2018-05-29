@@ -34,37 +34,10 @@ class AdminLogin extends Component {
 
     render() {
 
-      let showOrHideLogin;
-if(!this.state.show){
-  let showLogin =
-        (
-          <div>
-            <div className={this.state.hideOrShow}>
-                <h3>Admin login</h3>
-                <button onClick={this.showLogin.bind(this)}>Login</button>
-                </div>
-            </div>
-        );
-
-         showOrHideLogin = <div>{showLogin} <AdminLoginDiv/></div>
-}else{
-  let hideLogin =
-  (
-    <div>
-      <div className={this.state.hideOrShow}>
-          <h3>Admin logout</h3>
-          
-          </div>
-
-
-      </div>
-  );
-   showOrHideLogin = <div>{hideLogin} <AdminLoginDiv/></div>
-}
 
     return (
       <div>
-        {showOrHideLogin}
+        <AdminLoginDiv/>
         </div>
     )
 

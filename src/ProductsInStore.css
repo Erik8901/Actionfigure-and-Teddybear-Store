@@ -62,6 +62,11 @@ li>h3 {
   background-color: #FFFFFF;
 }
 
+.buyItem:disabled {
+  color: #000000;
+  background-color: rgba(250,0,0,0.7);
+}
+
 .changeRemoveBtn {
   position: relative;
   /* margin-top: 10px; */
@@ -107,6 +112,10 @@ li>h3 {
 .changeRemoveBtn:hover {
   color: #000000;
   background-color: #FFFFFF;
+}
+.changeRemoveBtn:disabled {
+  color: #000000;
+  background-color: rgba(250,0,0,0.7);
 }
 
 .changeInputItems {
@@ -156,25 +165,33 @@ li>h3 {
 
 .addedProd {
   list-style-type: none;
-  font-size: 0.5;
-  color: black;
-  box-shadow: 0 0 5px;
   width: 100%;
-  padding: 10px;
-  margin: 0;
+  padding: 5px;
+  margin-left: 5px;
   position: relative;
+  left:0;
+  border-bottom: 1px solid black;
+}
+
+.addedProd span {
+  position: relative;
+  left:-65px;
 }
 
 .boughtItems {
   overflow: hidden;
   overflow-y: scroll;
   height: 350px;
+  box-shadow: 0 0 0.1px;
 }
 
 .addedProd span:first-child {
   position: absolute;
   top: 0;
   left: 0;
+}
+::-webkit-scrollbar {
+  display: none;
 }
 
 nav ul {
@@ -184,6 +201,7 @@ nav ul {
   width: 80%;
   list-style-type: none;
   text-align: left;
+    box-shadow: 0 0 0.1px;
 }
 
 #cart>div {
@@ -233,12 +251,19 @@ div>.changeProductDiv {
   padding-right: 20px;
   width: 40px;
   font-weight: 700;
+  position:  relative;
+  left: -70px;
 }
 
 .addToStore input {
+  margin-top: 10px;
   width: 200px;
-  margin-left: 10px;
+  /* margin-right: 10px; */
+  display: block;
+  margin: 0 auto;
 }
+
+
 
 .changeProductDiv button {
   /* display: inline-block; */
@@ -260,5 +285,16 @@ div>.changeProductDiv {
   color: #000000;
   background-color: #FFFFFF;
 }
+.changeProductDiv button:disabled {
+  color: #000000;
+  background-color: rgba(250,0,0,0.7);
+}
+.costSpan {
+  position: relative;
+  top:10px;
+}
 
-.addOrChangeHeader {}
+.addOrChangeHeader {
+  margin: 0 auto;
+  margin-bottom: 15px;
+}

@@ -1,11 +1,13 @@
 
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {regret, redo, decreaseAmount, increaseAmount} from "./actions/actions.js"
+import './App.css';
+import './ProductsInStore.css'
 // import {undoProduct} from "./actions/actions.js"
-import {regret} from "./actions/actions.js"
-import {redo} from "./actions/actions.js"
-import {decreaseAmount} from "./actions/actions.js"
-import {increaseAmount} from "./actions/actions.js"
+// import {redo} from "./actions/actions.js"
+// import {decreaseAmount} from "./actions/actions.js"
+// import {increaseAmount} from "./actions/actions.js"
 
 class Cart extends Component {
 
@@ -27,7 +29,7 @@ class Cart extends Component {
 
           (<li className="addedProd" key={x.name + x.price + index}>
           <span>{x.name}</span><br/>
-          <span>Price: {x.price} kr</span><br/>
+          <span><strong>Price:</strong> {x.price} kr</span><br/>
 
           </li>)
         )
@@ -68,22 +70,23 @@ class Cart extends Component {
             <span>{x}</span><br/>
             </li>)
           )
-          cartHistoryContent = <nav><ul>{listHistoryCart}</ul></nav>
+          cartHistoryContent = <nav><ul className="historyUl">{listHistoryCart}</ul></nav>
         return (
       <div id="cart">
-        <div>
-          <button onClick={e => this.regret(name,price, amount)} disabled={!this.props.actionUndoCart}>Undo</button>
-          <button onClick={e => this.undo(name,price, amount)} disabled={!this.props.actionRedoCart}>Redo</button>
-        </div>
-        <h5>Your cart</h5>
-        <span>Total products {this.props.addToCart.cartPresentList.length}</span>
+
+        <p><strong>YOUR CART</strong></p>
+        <span><strong>Total products:</strong> {this.props.addToCart.cartPresentList.length}</span>
 
         {cartContent}
 
-        <span>Total cost {totalVal}</span>
-          <p>History</p>
-          {cartHistoryContent}
+        <span className="costSpan"><strong>Total cost:</strong> {totalVal}kr</span>
+        <div>
+        <button className="undoRedoBtn" onClick={e => this.regret(name,price, amount)} disabled={!this.props.actionUndoCart}>Undo</button>
+        <button className="undoRedoBtn" onClick={e => this.undo(name,price, amount)} disabled={!this.props.actionRedoCart}>Redo</button>
+        </div>
+          <p className="historyP">History</p>
 
+          {cartHistoryContent}
 
       </div>
 
