@@ -1,6 +1,6 @@
 https://erik8901.github.io/Lab33
 
-An appliction made with ReactJs + Redux. Its a webshop where the user can add/remove/update products in a shoppingcart + and admin login where the admin of the page can add/remove and change the products in the webshop
+An appliction made with ReactJs + Redux for a school project. Its a webshop where the user can add/remove/update products in a shoppingcart + and admin login where the admin of the page can add/remove and change the products in the webshop
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
