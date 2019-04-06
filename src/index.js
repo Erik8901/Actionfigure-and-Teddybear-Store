@@ -21,7 +21,7 @@ const initialState = {
 
     present:[
       {
-      name: "Teddybear Johan",
+      name: "Teddybear Johanqqqq",
       price: "99",
       amount: 2,
       key: "Teddybear Johan99",
