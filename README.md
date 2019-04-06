@@ -1,4 +1,4 @@
-https://erik8901.github.io/Lab33
+https://erik8901.github.io/Actionfigure-and-Teddybear-Store/
 
 An appliction made with ReactJs + Redux for a school project. Its a webshop where the user can add/remove/update products in a shoppingcart + and admin login where the admin of the page can add/remove and change the products in the webshop
 
