@@ -1,8 +1,8 @@
 {
-  "name": "Actionfigure-and-Teddybear-Store/",
+  "name": "Toystore",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://erik8901.github.io/Actionfigure-and-Teddybear-Store/",
+  "homepage": "https://erik8901.github.io/Toystore/",
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
@@ -22,15 +22,15 @@
     "gh-pages": "^1.1.0",
     "redux-devtools": "^3.4.1"
   },
-  "description": "https://erik8901.github.io/Actionfigure-and-Teddybear-Store/",
+  "description": "https://erik8901.github.io/Toystore/",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Erik8901/Actionfigure-and-Teddybear-Store"
+    "url": "git+https://github.com/Erik8901/Toystore"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Erik8901/Actionfigure-and-Teddybear-Store/issues"
+    "url": "https://github.com/Erik8901/Toystore"
   }
 }

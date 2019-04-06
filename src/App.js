@@ -14,7 +14,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <h1>Welcome to the actionfigure and teddybear store!</h1>
+        <h1>Welcome to the Toystore!</h1>
         <AdminLogin  />
         <ProductsInStore />
 
