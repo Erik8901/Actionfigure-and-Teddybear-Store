@@ -22,7 +22,8 @@ class AdminLoginDiv extends Component {
       return (
         <React.Fragment>
         <div className="showAdminLogin">
-        <h3 className="adminHeader">Logged in as admin</h3>
+        <h3 className="adminHeader">Logged in as admin: </h3>
+        <h4>{this.state.inputUser}</h4>
         <button className="logoutBtnAdmin" onClick={this.checkAdminLogin} type="button">Logout</button>
       </div>
       <AddProductsToStore/>
@@ -30,6 +31,7 @@ class AdminLoginDiv extends Component {
     }
 
     return (<div className="loginDiv">
+    Admin Login:
       <form>
         <strong>Username:</strong><input type="text" placeholder="Username" value={this.props.inputUser} onChange={e => this.setState({inputUser: e.target.value})}/>
         <strong>Password:</strong><input type="password" placeholder="Password" value={this.state.inputPass} onChange={e => this.setState({inputPass: e.target.value})}/>

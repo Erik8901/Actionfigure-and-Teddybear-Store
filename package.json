@@ -21,5 +21,16 @@
   "devDependencies": {
     "gh-pages": "^1.1.0",
     "redux-devtools": "^3.4.1"
+  },
+  "description": "https://erik8901.github.io/Lab33",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Erik8901/Lab33.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Erik8901/Lab33/issues"
   }
 }

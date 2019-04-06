@@ -1,6 +1,14 @@
 body {
   background-color: lightblue;
+  
 }
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+
 
 .showAdminLogin {
   z-index: 3;
@@ -15,6 +23,12 @@ body {
   width: 215px;
   /* background: rgba(255, 255, 255, 1); */
   box-shadow: 0px 0px 20px black;
+  
+}
+
+h4 {
+  color: white;
+  text-align: center;
 }
 
 .hideAdminLogin {
@@ -63,7 +77,7 @@ body {
   z-index: 1;
   background-color: tomato;
   position: absolute;
-  height: 130px;
+  height: 160px;
   width: 215px;
   text-align: center;
   /* top: 0; */
